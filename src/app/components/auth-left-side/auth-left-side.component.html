@@ -1,0 +1,12 @@
+<div class="left-side">
+  <div class="image-block">
+    <h2>A new way to buy and sell cars</h2>
+    <div class="sign-up">
+      <p>{{type === 0 ? 'You don’t have an account?' : 'Do you already have an account?'}}</p>
+      <button (click)="routeTo.emit()">
+        {{type === 0 ? 'Sign up' : 'Sign in'}}
+      </button>
+    </div>
+  </div>
+
+</div>

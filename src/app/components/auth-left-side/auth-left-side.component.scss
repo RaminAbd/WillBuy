@@ -1,0 +1,73 @@
+.left-side {
+  width: 673px;
+
+  .image-block {
+    width: 673px;
+    height: calc(100vh - 60px);
+    background: #0077B6;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    position: relative;
+    background-image: url('../../../assets/images/login-main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h2 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 78px;
+      display: flex;
+      align-items: center;
+      color: #FFFFFF;
+      margin: 0;
+      width: 451px;
+      position: absolute;
+      top: 120px;
+      left: 60px;
+    }
+
+    .sign-up {
+      width: 100%;
+      height: 85px;
+      background: rgba(1, 33, 53, 0.85);
+      border-radius: 0px 0px 24px 24px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+
+      p {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+      }
+
+      button {
+        width: 116px;
+        height: 45px;
+        background: #0077B6;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFFFFF;
+      }
+    }
+  }
+}

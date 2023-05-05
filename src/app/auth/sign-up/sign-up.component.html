@@ -1,0 +1,85 @@
+<div class="login-wrapper">
+  <div class="main-block">
+    <app-auth-left-side [type]="1" (routeTo)="routeTo()"></app-auth-left-side>
+    <div class="right-side">
+      <div class="form-block">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="">
+        </div>
+        <div class="heading">
+          <h3>Create your account</h3>
+          <p>Enter your details to proceed further</p>
+        </div>
+        <div class="form">
+          <div class="input" [ngClass]="{'notValid':!SignUpRequest.personalId.isValid}">
+            <div class="left">
+              <label for="personalId">Personal Id</label>
+              <input type="text" id="personalId" [(ngModel)]="SignUpRequest.personalId.value">
+            </div>
+            <div class="right">
+              <img src="assets/images/personalId.svg" alt="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input"   [ngClass]="{'notValid':!SignUpRequest.firstName.isValid}">
+              <div class="left">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" [(ngModel)]="SignUpRequest.firstName.value">
+              </div>
+              <div class="right">
+                <img src="assets/images/person-icon.svg" alt="">
+              </div>
+            </div>
+            <div class="input"   [ngClass]="{'notValid':!SignUpRequest.lastName.isValid}">
+              <div class="left">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" [(ngModel)]="SignUpRequest.lastName.value">
+              </div>
+              <div class="right">
+                <img src="assets/images/person-icon.svg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="input wp"  [ngClass]="{'notValid':!SignUpRequest.phoneNumber.isValid}">
+            <div class="right">
+              <img src="assets/images/whatsapp.svg" alt="" *ngIf="SignUpRequest.selectedType===true">
+              <i class="pi pi-phone" style="width: 24px;" *ngIf="SignUpRequest.selectedType===false"></i>
+              <div class="switcher">
+                <i class="pi pi-caret-up" (click)="SignUpRequest.selectedType = !SignUpRequest.selectedType"></i>
+                <i class="pi pi-caret-down" (click)="SignUpRequest.selectedType = !SignUpRequest.selectedType"></i>
+              </div>
+            </div>
+            <div class="left">
+              <label for="password">Mobile or WhatsApp</label>
+              <input type="text" id="password" [(ngModel)]="SignUpRequest.phoneNumber.value">
+            </div>
+
+          </div>
+          <div class="input"   [ngClass]="{'notValid':!SignUpRequest.password.isValid}">
+            <div class="left">
+              <label for="password">Password</label>
+              <input type="password" id="password" [(ngModel)]="SignUpRequest.password.value">
+            </div>
+            <div class="right">
+              <img src="assets/images/password.svg" alt="">
+            </div>
+          </div>
+          <div class="input"  [ngClass]="{'notValid':!SignUpRequest.confirmPassword.isValid}">
+            <div class="left">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" [(ngModel)]="SignUpRequest.confirmPassword.value">
+            </div>
+            <div class="right">
+              <img src="assets/images/password.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="agree">
+          <input type="checkbox" id="agree" [(ngModel)]="SignUpRequest.agreePolicy">
+          <label for="" (click)="goToPolicy()">I agree with terms & conditions</label>
+        </div>
+        <button [disabled]="!SignUpRequest.agreePolicy" (click)="submit()">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>

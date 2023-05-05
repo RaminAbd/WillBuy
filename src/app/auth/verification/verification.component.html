@@ -1,0 +1,37 @@
+<!-- <form>
+  <input type="text" maxlength="1" [(ngModel)]="input1" name="first" class="input" />
+  <input type="text" maxlength="1" [(ngModel)]="input2" name="second" class="input" />
+  <input type="text" maxlength="1" [(ngModel)]="input3" name="third" class="input" />
+  <input type="text" maxlength="1" [(ngModel)]="input4" name="fourth" class="input" />
+</form> -->
+<div class="login-wrapper">
+  <div class="main-block">
+    <app-auth-left-side [type]="0" (routeTo)="routeTo()"></app-auth-left-side>
+    <div class="right-side">
+      <div class="form-block">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="">
+        </div>
+        <div class="heading">
+          <h3>Enter the code that we
+            sent to {{PhoneNumber}}</h3>
+          <p>Enter your details to proceed further</p>
+        </div>
+        <div class="form">
+          <form>
+            <input type="text" maxlength="1" [(ngModel)]="input1" name="first" class="input"
+              [ngClass]="{'filled': input1}" />
+            <input type="text" maxlength="1" [(ngModel)]="input2" name="second" class="input"
+              [ngClass]="{'filled': input2}" />
+            <input type="text" maxlength="1" [(ngModel)]="input3" name="third" class="input"
+              [ngClass]="{'filled': input3}" />
+            <input type="text" maxlength="1" [(ngModel)]="input4" name="fourth" class="input"
+              [ngClass]="{'filled': input4}" />
+          </form>
+        </div>
+
+        <button [disabled]="disabledButton" (click)="submit()">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
