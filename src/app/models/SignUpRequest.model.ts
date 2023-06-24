@@ -1,9 +1,9 @@
 export class SignUpRequest {
-  userName: string;
+  personalId: string;
   password: string;
   firstName: string;
   lastName: string;
-  source: string;
+  phoneNumber: string;
   code: number;
   communicationType: number = 1;
 }

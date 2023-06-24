@@ -1,16 +1,10 @@
-<!-- <form>
-  <input type="text" maxlength="1" [(ngModel)]="input1" name="first" class="input" />
-  <input type="text" maxlength="1" [(ngModel)]="input2" name="second" class="input" />
-  <input type="text" maxlength="1" [(ngModel)]="input3" name="third" class="input" />
-  <input type="text" maxlength="1" [(ngModel)]="input4" name="fourth" class="input" />
-</form> -->
 <div class="login-wrapper">
   <div class="main-block">
     <app-auth-left-side [type]="0" (routeTo)="routeTo()"></app-auth-left-side>
     <div class="right-side">
       <div class="form-block">
         <div class="logo">
-          <img src="assets/images/logo.svg" alt="">
+          <img src="assets/images/logo.png" alt="">
         </div>
         <div class="heading">
           <h3>Enter the code that we
@@ -27,6 +21,8 @@
               [ngClass]="{'filled': input3}" />
             <input type="text" maxlength="1" [(ngModel)]="input4" name="fourth" class="input"
               [ngClass]="{'filled': input4}" />
+            <input type="text" maxlength="1" [(ngModel)]="input5" name="fifth" class="input"
+              [ngClass]="{'filled': input5}" />
           </form>
         </div>
 

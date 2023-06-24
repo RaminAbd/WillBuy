@@ -1,5 +1,6 @@
 export class ServiceResponse {
-  error: string;
+  errorDescription?: string;
   data: any;
   succeeded: boolean;
+  errorCode:number;
 }

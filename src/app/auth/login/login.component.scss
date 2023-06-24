@@ -19,6 +19,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-bottom: 15px;
         }
 
         .heading {
@@ -60,7 +61,9 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 21px;
-
+            &.notValid {
+              border: 2px solid rgb(255 0 0 / 50%);
+            }
             .left {
               display: flex;
               flex-direction: column;

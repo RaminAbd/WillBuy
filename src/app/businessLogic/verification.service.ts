@@ -6,8 +6,9 @@ import { SmsApiService } from '../services/sms-api.service';
 import { VerifyCodeRequest } from '../models/VerifyCodeRequest.model';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { UsersApiService } from '../services/users-api.service';
 import { SignUpRequest } from '../models/SignUpRequest.model';
+import { UsersApiService } from '../services/users.api.service';
+import { CustomersApiService } from '../services/customers.api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class VerificationService {
 
   constructor(
     private storage: LocalStorageService,
-    private userService: UsersApiService,
     private service: SmsApiService,
+    private customerService: CustomersApiService,
     private router: Router,
     private messageService: MessageService,
   ) { }
@@ -27,11 +28,11 @@ export class VerificationService {
     if (requestDTO) {
       var request = new VerificationCodeRequest();
       request.source = requestDTO.phoneNumber.value;
-      request.verificationType = requestDTO.selectedType ? 0 : 1;
+      request.verificationType = requestDTO.selectedType ? 1 : 1;
+      console.log(request);
       this.service.SendVerificationCode(request).subscribe(resp => { })
     }
     else {
-      console.log('else');
       this.router.navigate(['./sign-in']);
     }
   }
@@ -63,15 +64,15 @@ export class VerificationService {
     request.firstName = req.firstName.value;
     request.lastName = req.lastName.value;
     request.password = req.password.value;
-    request.source = req.phoneNumber.value;
-    request.userName = req.personalId.value;
-    this.userService.SignUp(request).subscribe(resp => {
+    request.phoneNumber = req.phoneNumber.value;
+    request.personalId = req.personalId.value;
+    console.log(request);
+    this.customerService.Create(this.customerService.serviceUrl, request).subscribe(resp => {
       if (resp.succeeded) {
         this.router.navigate(['./sign-in']);
         this.storage.removeObject('signUpReq');
       }
       else {
-        console.log("dvsvd");
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
     })

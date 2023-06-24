@@ -18,7 +18,7 @@ export class BaseCrudApiService extends BaseApiService {
     return this.get(serviceUrl, null, lang);
   }
   Create(serviceUrl: string, form: any) {
-    return this.post(serviceUrl, form)
+    return this.post(serviceUrl+ 'Create', form)
   }
   Update(serviceUrl: string, form: any) {
     return this.post(serviceUrl, form);
@@ -28,5 +28,8 @@ export class BaseCrudApiService extends BaseApiService {
   }
   Delete(serviceUrl: string, id: string) {
     return this.delete(serviceUrl, id);
+  }
+  GetAllWithPaging(serviceUrl: string, req: any) {
+    return this.get(serviceUrl, null, req)
   }
 }

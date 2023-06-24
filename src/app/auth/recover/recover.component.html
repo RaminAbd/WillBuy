@@ -12,22 +12,18 @@
           <p>Enter your details to proceed further</p>
         </div>
         <div class="form">
-          <div class="input">
+          <div class="input" [ngClass]="{'notValid':!personalId.isValid}">
             <div class="left">
               <label for="personalId">Personal Id</label>
-              <input type="text" id="personalId" [(ngModel)]="personalId">
+              <input type="text" id="personalId" [(ngModel)]="personalId.value">
             </div>
             <div class="right">
               <img src="assets/images/personalId.svg" alt="">
             </div>
           </div>
-
         </div>
-
-        <button (click)="goToVerification()">Recover</button>
+        <button (click)="Submit()">Recover</button>
       </div>
     </div>
   </div>
 </div>
-
-

@@ -18,6 +18,7 @@ export class VerificationComponent implements AfterViewInit {
   input2: number;
   input3: number;
   input4: number;
+  input5: number;
   UserCode: any;
   disabledButton: boolean = true;
   PhoneNumber: any;
@@ -31,7 +32,7 @@ export class VerificationComponent implements AfterViewInit {
     inputs.forEach((input: any, key: any) => {
       input.addEventListener("keyup", () => {
         if (input.value) {
-          if (key === 3) {
+          if (key === 4) {
             const userCode = [...inputs].map((input) => input.value).join("");
             this.UserCode = userCode;
             this.disabledButton = false;

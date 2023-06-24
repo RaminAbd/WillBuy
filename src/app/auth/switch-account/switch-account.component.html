@@ -1,0 +1,20 @@
+<div class="switch-account-wrapper">
+  <div class="switch-block">
+    <div class="header">
+      <img src="assets/images/logo.png" alt="">
+      <h3>Choose your account</h3>
+    </div>
+    <div class="block">
+      <div class="account-item" *ngFor="let item of userAccounts" (click)="continueWithRole(item)">
+        <div class="icon">
+         <img src="assets/images/person-icon.svg" alt="">
+        </div>
+        <div class="name">
+          <p class="userName">{{item.firstName + ' ' + item.lastName}}</p>
+          <p class="role">{{item.permission}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

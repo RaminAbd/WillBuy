@@ -4,7 +4,7 @@
     <div class="right-side">
       <div class="form-block">
         <div class="logo">
-          <img src="assets/images/logo.svg" alt="">
+          <img src="assets/images/logo.png" alt="">
         </div>
         <div class="heading">
           <h3>Sign in to your account</h3>
@@ -12,19 +12,19 @@
         </div>
         <form (submit)="submit()" [formGroup]="form" class="form">
 
-          <div class="input">
+          <div class="input" [ngClass]="{'notValid':!signInRequest.personalId.isValid}">
             <div class="left">
               <label for="personalId">Personal Id</label>
-              <input type="text" id="personalId"  formControlName="personalId" name="personalId">
+              <input type="text" id="personalId" name="personalId" formControlName="personalId" [(ngModel)]="signInRequest.personalId.value">
             </div>
             <div class="right">
               <img src="assets/images/personalId.svg" alt="">
             </div>
           </div>
-          <div class="input">
+          <div class="input"   [ngClass]="{'notValid':!signInRequest.password.isValid}">
             <div class="left">
               <label for="password">Password</label>
-              <input type="password" id="password" formControlName="password" name="password">
+              <input type="password" id="password" name="password" formControlName="password" form [(ngModel)]="signInRequest.password.value">
             </div>
             <div class="right">
               <img src="assets/images/password.svg" alt="">
@@ -34,7 +34,7 @@
         <div class="recover">
           <p (click)="goToRecover()">Recover password</p>
         </div>
-        <button type="submit" >Sign in</button>
+        <button type="submit" (click)="submit()">Sign in</button>
       </div>
     </div>
   </div>

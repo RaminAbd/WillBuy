@@ -14,6 +14,6 @@ export class SmsApiService extends BaseApiService {
     return this.post('Verification/SendVerificationCode', req);
   }
   SendVerifiocationCodeToUser(personalId: string) {
-    return this.get('Verifiocation/SendVerifiocationCodeToUser', personalId, null);
+    return this.get('Verification/SendVerifiocationCodeToUser/', personalId, null);
   }
 }
