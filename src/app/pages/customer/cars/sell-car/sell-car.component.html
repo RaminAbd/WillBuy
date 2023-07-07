@@ -1,0 +1,12 @@
+<div class="sell-car-wrapper">
+  <div class="header">
+    <div class="cancel">
+      <p (click)="Cancel()">Cancel</p>
+    </div>
+  </div>
+  <div class="body" [@pageAnimation]="getAnimationState()">
+    <div class="sell-pages">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

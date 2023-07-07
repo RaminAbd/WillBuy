@@ -1,0 +1,79 @@
+<div class="admin-filter-table-wrapper">
+  <p-table #dt1 [value]="Customers" dataKey="id" [rows]="10" [loading]="loading" (sortFunction)="customSort($event)"
+    [customSort]="true">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        <button (click)="OpenUpsert()">
+          <i class="pi pi-plus"></i>
+        </button>
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (keyup.enter)="getSearchvalue($event)" placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:15rem">
+          <div class="flex align-items-center">
+            Name
+            <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
+              [showOperator]="false" [showAddButton]="false">
+              <ng-template pTemplate="header">
+                <div class="px-3 pt-3 pb-0">
+                  <span class="font-bold">Service Agreement</span>
+                </div>
+              </ng-template>
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="ServiceAgreementLevels" placeholder="Any"
+                  (onChange)="filter(getEventValue($event))" optionLabel="name">
+                  <ng-template let-option pTemplate="item">
+                    <div class="inline-block vertical-align-middle">
+                      <img [alt]="option.label"
+                        src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" width="24"
+                        class="vertical-align-middle" />
+                      <span class="ml-1 mt-1">{{ option.name }}</span>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </div>
+        </th>
+
+        <th pSortableColumn="lastName" style="width:20%">Last name <p-sortIcon field="lastName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="personalId" style="width:20%">Personal ID <p-sortIcon field="personalId"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="phoneNumber" style="width:20%">Phone number <p-sortIcon field="phoneNumber"></p-sortIcon>
+        </th>
+        <th style="width:20%">Actions
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td> {{ customer.firstName }} </td>
+        <td> {{ customer.lastName }} </td>
+        <td> {{ customer.personalId }} </td>
+        <td> {{ customer.phoneNumber }} </td>
+        <td> <span><img (click)="OpenUpsert(customer.id)" src="assets/images/edit-icon.svg" alt=""> </span></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="1" [rows]="PagingResponse.pageSize"
+    [totalRecords]="PagingResponse.totalCount"></p-paginator>
+
+</div>
+<p-dialog header="Code" class="code" [(visible)]="visible" [style]="{width: '40vw'}">
+  <div  class="item">
+    <input type="number" [(ngModel)]="customerCode">
+  </div>
+  <button (click)="sendRequest()">Create</button>
+</p-dialog>

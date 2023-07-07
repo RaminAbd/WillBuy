@@ -1,1 +1,10 @@
-<p>customers works!</p>
+<div class="admins-wrapper">
+  <app-admin-filter-table
+  [PagingResponse]="Response"
+  [Customers]="Customers"
+  [loading]="loading"
+  [ServiceAgreementLevels]="ServiceAgreementLevels"
+  (getByPaging)="getCustomers($event)"
+  [tableType]="3"
+  ></app-admin-filter-table>
+</div>

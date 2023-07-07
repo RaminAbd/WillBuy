@@ -21,15 +21,15 @@ export class BaseCrudApiService extends BaseApiService {
     return this.post(serviceUrl+ 'Create', form)
   }
   Update(serviceUrl: string, form: any) {
-    return this.post(serviceUrl, form);
+    return this.post(serviceUrl + 'Update', form);
   }
   GetById(serviceUrl: string, id: string) {
-    return this.get(serviceUrl, id, null);
+    return this.get(serviceUrl+'Get/', id, null);
   }
   Delete(serviceUrl: string, id: string) {
     return this.delete(serviceUrl, id);
   }
   GetAllWithPaging(serviceUrl: string, req: any) {
-    return this.get(serviceUrl, null, req)
+    return this.get(serviceUrl+'GetAllWithPaging', null, req)
   }
 }

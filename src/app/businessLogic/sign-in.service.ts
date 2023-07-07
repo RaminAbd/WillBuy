@@ -60,7 +60,7 @@ export class SignInService {
   }
   routeByRole(data: any) {
     if (data.accounts.length === 1) {
-      this.router.navigate(['./home']);
+      this.router.navigate(['./customer/cars']);
       this.storage.saveObject('selectedPermission', data.accounts[0]);
     }
     else {

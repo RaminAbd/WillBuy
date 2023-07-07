@@ -38,7 +38,7 @@ export class SwitchAccountService {
     this.storage.saveObject('selectedPermission', item);
     switch (item.accountType) {
       case 1:
-        this.router.navigate(['./home'])
+        this.router.navigate(['./customer/cars'])
         break;
       case 2:
         this.router.navigate(['./admin/customers'])
@@ -47,7 +47,7 @@ export class SwitchAccountService {
         this.router.navigate(['./admin/admins'])
         break;
       default:
-        this.router.navigate(['./home'])
+        this.router.navigate(['./customer/cars'])
         break;
     }
   }

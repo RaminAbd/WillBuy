@@ -1,0 +1,39 @@
+<div class="describe-vehicle-wrapper" [@pageAnimation]="animate ? 'page' : ''">
+  <div class="header">
+    <h3>Describe your vehicle</h3>
+  </div>
+  <div class="lookup-body">
+    <div class="include-carFax">
+      <label for="include">Include Carfax report</label>
+      <p-inputSwitch [(ngModel)]="includeCarFax" (ngModelChange)="carFaxIncludeChanged()"></p-inputSwitch>
+    </div>
+    <div class="or">
+      <p>or</p>
+    </div>
+    <div class="file-input">
+      <label for="file" [ngClass]="{'disabled':includeCarFax}">
+        <img src="assets/images/upload.svg" alt="">
+        Upload manually
+      </label>
+      <input id="file" type="file" [disabled]="includeCarFax" [(ngModel)]="file" (change)="getFile($event)"
+        multiple="false" accept="application/pdf,image/jpeg,image/png,image/jpg">
+    </div>
+    <div class="file-preview" [@slideInOut]="Form.carFax ? 'in' : 'out'" *ngIf="Form.carFax">
+      <div class="format-name">
+        <div class="format">
+          <p>{{Form.carFax.extension}}</p>
+        </div>
+        <div class="name">
+          <p>{{Form.carFax.fileName}}</p>
+        </div>
+      </div>
+      <div class="deleteFile">
+        <i class="pi pi-times" (click)="deleteSelectedFile()"></i>
+      </div>
+    </div>
+    <div class="btns">
+      <button class="back" [disabled]="true" (click)="PreviousStep()">Back</button>
+      <button class="next" [disabled]="disableNext" (click)="NextStep()">Next</button>
+    </div>
+  </div>
+</div>

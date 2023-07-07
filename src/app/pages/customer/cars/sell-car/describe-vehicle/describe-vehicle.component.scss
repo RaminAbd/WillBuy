@@ -1,0 +1,154 @@
+.describe-vehicle-wrapper {
+  .header {
+    h3 {
+      color: #333;
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 51px;
+    }
+  }
+
+  .lookup-body {
+    min-height: 322px;
+    position: relative;
+
+    .include-carFax {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 63px;
+
+      label {
+        color: #333;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 19px;
+
+      }
+    }
+
+    .or {
+      margin: 25px 0;
+
+      p {
+        margin: 0;
+        color: rgba(51, 51, 51, 0.50);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 19px;
+      }
+    }
+
+    .file-input {
+      label {
+        border-radius: 6px;
+        background: #0077B6;
+        width: 100%;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        color: #FFF;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        cursor: pointer;
+
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
+
+    .file-preview {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+
+      .format-name {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        .format {
+          width: 49px;
+          height: 49px;
+          background: rgba(0, 119, 182, 0.20);
+          stroke-width: 2px;
+          border: 1px solid #0077B6;
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            color: #0077B6;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 19px;
+          }
+        }
+
+        .name {
+          p {
+            color: #333;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19px;
+          }
+        }
+      }
+
+      .deleteFile {
+        i {
+          color: #333;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 19px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .btns {
+      margin-top: 91px;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      justify-content: space-between;
+      width: 100%;
+      bottom: 0;
+
+      button {
+        width: 126px;
+        height: 53px;
+        border-radius: 6px;
+        background: #EEE;
+        color: rgba(51, 51, 51, 0.50);
+        text-align: center;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+
+
+        &.next {
+          background: #0077B6;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}

@@ -1,20 +1,27 @@
-<div class="switch-account-wrapper">
-  <div class="switch-block">
-    <div class="header">
-      <img src="assets/images/logo.png" alt="">
-      <h3>Choose your account</h3>
-    </div>
-    <div class="block">
-      <div class="account-item" *ngFor="let item of userAccounts" (click)="continueWithRole(item)">
-        <div class="icon">
-         <img src="assets/images/person-icon.svg" alt="">
+<div class="login-wrapper">
+  <div class="main-block">
+    <app-auth-left-side [type]="0" (routeTo)="routeTo()"></app-auth-left-side>
+    <div class="right-side">
+      <div class="my-form-block">
+        <div class="logo">
+          <img src="assets/images/logo.png" alt="">
         </div>
-        <div class="name">
-          <p class="userName">{{item.firstName + ' ' + item.lastName}}</p>
-          <p class="role">{{item.permission}}</p>
+        <div class="heading">
+          <h3>Select your account</h3>
+        </div>
+        <div class="block">
+          <div class="account-item" *ngFor="let item of userAccounts" (click)="continueWithRole(item)">
+            <div class="icon">
+             <img src="assets/images/person-icon.svg" alt="">
+            </div>
+            <div class="name">
+              <p class="userName">{{item.firstName + ' ' + item.lastName}}</p>
+              <p class="role">{{item.permission}}</p>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
+

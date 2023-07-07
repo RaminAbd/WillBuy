@@ -1,0 +1,20 @@
+<div class="side-bar">
+  <div class="logo">
+    <img src="assets/images/logo.png" alt="">
+  </div>
+  <div class="nav-links">
+    <a [routerLink]="'admins'" [routerLinkActive]="['active']">
+      <img src="assets/images/nav-car.svg" alt="">
+      <p>Admins</p>
+    </a>
+    <a [routerLink]="'operators'" [routerLinkActive]="['active']">
+      <img src="assets/images/nav-car.svg" alt="">
+      <p>Operators</p>
+    </a>
+    <a [routerLink]="'customers'" [routerLinkActive]="['active']">
+      <img src="assets/images/nav-car.svg" alt="">
+      <p>Customers</p>
+    </a>
+  </div>
+  <p class="logout" (click)="logout()">Log out</p>
+</div>

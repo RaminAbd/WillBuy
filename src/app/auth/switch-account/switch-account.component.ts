@@ -14,6 +14,9 @@ export class SwitchAccountComponent {
     private service: SwitchAccountService,
     public route: ActivatedRoute
   ) { this.getAccounts() };
+  routeTo(){
+
+  }
   getAccounts() {
     this.service.getAccounts(this);
   }

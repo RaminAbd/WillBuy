@@ -12,6 +12,16 @@ import { AdminsComponent } from './pages/admin/admins/admins.component';
 import { OperatorsComponent } from './pages/admin/operators/operators.component';
 import { CustomersComponent } from './pages/admin/customers/customers.component';
 import { RoleGuard } from './core/role.guard';
+import { CustomerComponent } from './pages/customer/customer.component';
+import { CarsComponent } from './pages/customer/cars/cars.component';
+import { CarsListComponent } from './pages/customer/cars/cars-list/cars-list.component';
+import { SellCarComponent } from './pages/customer/cars/sell-car/sell-car.component';
+import { CarLookupComponent } from './pages/customer/cars/sell-car/car-lookup/car-lookup.component';
+import { DescribeVehicleComponent } from './pages/customer/cars/sell-car/describe-vehicle/describe-vehicle.component';
+import { VehicleInvoiceComponent } from './pages/customer/cars/sell-car/vehicle-invoice/vehicle-invoice.component';
+import { CarSaleTypeComponent } from './pages/customer/cars/sell-car/car-sale-type/car-sale-type.component';
+import { CarSaleCheckoutComponent } from './pages/customer/cars/sell-car/car-sale-checkout/car-sale-checkout.component';
+import { CarSaleFinishComponent } from './pages/customer/cars/sell-car/car-sale-finish/car-sale-finish.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: LoginComponent },
@@ -20,12 +30,36 @@ const routes: Routes = [
   { path: 'verification', component: VerificationComponent },
   { path: 'change-password/:personalId', component: ChangePasswordComponent },
   { path: 'switch-account/:userId', component: SwitchAccountComponent },
-  { path: 'home', component: HomeComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+  {
+    path: 'customer', component: CustomerComponent, children: [
+      {
+        path: 'cars', component: CarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
+          { path: 'list', component: CarsListComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          {
+            path: 'sell', component: SellCarComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
+              { path: 'lookup', component: CarLookupComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: 'vehicle-invoice/:vin', component: VehicleInvoiceComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: 'describe/:vin', component: DescribeVehicleComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: 'sale-type/:vin', component: CarSaleTypeComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: 'checkout/:vin', component: CarSaleCheckoutComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: 'finish/:vin', component: CarSaleFinishComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+              { path: '', redirectTo: 'lookup', pathMatch: 'full' },
+            ]
+          },
+          { path: '', redirectTo: 'list', pathMatch: 'full' },
+        ]
+      },
+      { path: '', redirectTo: 'cars', pathMatch: 'full' },
+
+    ]
+  },
   {
     path: 'admin', component: AdminComponent, children: [
       { path: 'admins', component: AdminsComponent, canActivate: [RoleGuard], data: { permissionTypes: [3] } },
       { path: 'operators', component: OperatorsComponent, canActivate: [RoleGuard], data: { permissionTypes: [3] } },
       { path: 'customers', component: CustomersComponent, canActivate: [RoleGuard], data: { permissionTypes: [3, 2] } },
+      { path: '', redirectTo: 'admins', pathMatch: 'full' },
+
     ]
   },
 

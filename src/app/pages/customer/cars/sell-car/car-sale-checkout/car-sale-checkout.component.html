@@ -1,0 +1,33 @@
+<div class="checkout-wrapper" [@pageAnimation]="animate ? 'page' : ''">
+  <div class="header">
+    <h3>Checkout</h3>
+  </div>
+
+  <div class="lookup-body">
+    <div class="bill">
+      <div class="item">
+        <p class="key">Car adding price</p>
+        <p class="value">$200</p>
+      </div>
+      <div class="item">
+        <p class="key">Carfax</p>
+        <p class="value">$10</p>
+      </div>
+      <div class="item">
+        <p class="key">Bank commission </p>
+        <p class="value">$2</p>
+      </div>
+      <div class="item total">
+        <p class="key">Total</p>
+        <p class="value">$212</p>
+      </div>
+    </div>
+    <div class="money-refunded">
+      <p>Money Refunded to your WillBuy Balance Upon Removal!</p>
+    </div>
+    <div class="btns">
+      <button class="back" [disabled]="false" (click)="PreviousStep()">Back</button>
+      <button class="next" [disabled]="false" (click)="NextStep()">Next</button>
+    </div>
+  </div>
+</div>

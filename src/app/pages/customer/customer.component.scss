@@ -1,0 +1,20 @@
+.customer-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  .main-content {
+    width: calc(100% - 305px);
+
+    .pages {
+      padding: 42px 58px;
+      min-height: calc(100vh - 60px);
+    }
+
+    .footer {
+      width: 100%;
+      height: 60px;
+      background: #F4F6F8;
+    }
+  }
+}

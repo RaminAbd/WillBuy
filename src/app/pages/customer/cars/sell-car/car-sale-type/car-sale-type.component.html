@@ -1,0 +1,46 @@
+<div class="sale-type-wrapper" [@pageAnimation]="animate ? 'page' : ''">
+  <div class="header">
+    <h3>Choose your sale type</h3>
+  </div>
+  <div class="lookup-body">
+    <div class="flex flex-column gap-3 sale-types">
+      <div *ngFor="let type of SaleTypes" class="field-checkbox item" [ngClass]="{'selected':type === selectedSaleType}"
+        (click)="selectedTypeChanged(type)">
+        <label [for]="type.id" class="ml-2">{{ type.name }}</label>
+        <p-radioButton [inputId]="type.id" name="category" [value]="type" [(ngModel)]="selectedSaleType">
+        </p-radioButton>
+      </div>
+    </div>
+    <div class="selected-inputs">
+      <div class="direct-type" *ngIf="selectedSaleType.code === 1">
+        <div class="input-item">
+          <label>Price in USD</label>
+          <div class="area">
+            <input type="number" [(ngModel)]="Form.directSaleOption.price">
+            <p>$</p>
+          </div>
+        </div>
+      </div>
+      <div class="trading-type" *ngIf="selectedSaleType.code === 2">
+        <div class="input-item">
+          <label>Minimum price in USD</label>
+          <div class="area">
+            <input type="number" [(ngModel)]="Form.tradingSaleOption.minimalPrice">
+            <p>$</p>
+          </div>
+        </div>
+        <div class="input-item">
+          <label>The amount i want</label>
+          <div class="area">
+            <input type="number" [(ngModel)]="Form.tradingSaleOption.desiredPrice">
+            <p>$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btns">
+      <button class="back" [disabled]="false" (click)="PreviousStep()">Back</button>
+      <button class="next" [disabled]="false" (click)="NextStep()">Next</button>
+    </div>
+  </div>
+</div>

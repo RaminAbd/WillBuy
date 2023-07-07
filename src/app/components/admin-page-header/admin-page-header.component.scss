@@ -1,0 +1,36 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    margin: 0;
+    color: #333;
+    font-size: 26px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 19px;
+  }
+
+  .personal-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .icon {
+      height: 29px;
+    }
+
+    .name {
+      color: #C9C9C9;
+      font-size: 16px;
+      font-family: Inter;
+      font-weight: 700;
+      line-height: 24px;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

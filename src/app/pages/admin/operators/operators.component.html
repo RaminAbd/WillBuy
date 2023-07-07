@@ -1,1 +1,10 @@
-<p>operators works!</p>
+<div class="admins-wrapper">
+  <app-admin-filter-table
+  [PagingResponse]="Response"
+  [Customers]="Operators"
+  [loading]="loading"
+  [ServiceAgreementLevels]="ServiceAgreementLevels"
+  (getByPaging)="getOperators($event)"
+  [tableType]="2"
+  ></app-admin-filter-table>
+</div>
