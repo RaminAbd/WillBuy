@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AdminsService } from 'src/app/businessLogic/admins.service';
-import { CustomerPagingrequest } from 'src/app/models/CustomerPagingRequest.model';
 import { CustomerResponse } from 'src/app/models/CustomersResponse.model';
 import { PagingRequest } from 'src/app/models/PagingRequest.model';
 import { PagingResponse } from 'src/app/models/PagingResponse.model';

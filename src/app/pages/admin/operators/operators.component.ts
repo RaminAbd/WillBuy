@@ -13,7 +13,6 @@ export class OperatorsComponent {
   Operators: CustomerResponse[] = [];
   Response: PagingResponse = new PagingResponse();
   Request: PagingRequest = new PagingRequest();
-  ServiceAgreementLevels: any[] = []
   loading: boolean = false;
   constructor(private service: OperatorsService) {
     this.getOperators(new PagingRequest());

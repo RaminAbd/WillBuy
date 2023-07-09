@@ -3,10 +3,12 @@
     <h3>Car Lookup</h3>
   </div>
   <div class="lookup-body">
-    <div class="input-item">
-      <label>Name</label>
-      <div class="area">
-        <input type="text" [(ngModel)]="VinCode" (keyup.enter)="searchByVin()">
+    <div class="input">
+      <div class="left">
+        <label for="vinCode">VIN code</label>
+        <input type="text" id="vinCode" (keyup.enter)="searchByVin()" [(ngModel)]="VinCode">
+      </div>
+      <div class="right">
         <i class="pi pi-search" (click)="searchByVin()"></i>
       </div>
     </div>

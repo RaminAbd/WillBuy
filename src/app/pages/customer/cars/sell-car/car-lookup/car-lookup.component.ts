@@ -26,17 +26,16 @@ import { CarAddingForm } from 'src/app/models/CarAddingForm.model';
       })),
       transition(':enter', [
         style({
-          transform: 'translateY(100%)',
-          // opacity: 0
+          transform: 'translateY(-100%)',
+          opacity: 0
         }),
-        animate('300ms ease-out', style({ transform: 'translateX(0)' }))
+        animate('0.3s ease')
       ]),
       transition(':leave', [
         animate('0.3s ease', style({
-          transform: 'translateY(0)',
-          // opacity: 0
+          transform: 'translateY(-100%)',
+          opacity: 0
         }))
-
       ])
     ])
   ]

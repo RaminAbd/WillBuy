@@ -36,7 +36,6 @@ export class SignUpService {
 
   sendVerificationCode(SignUpRequest: SignUpRequestDTO) {
     this.storage.saveObject('signUpReq', SignUpRequest);
-    this.verificationService.SendVerificationCode();
     this.router.navigate(['./verification']);
   }
 

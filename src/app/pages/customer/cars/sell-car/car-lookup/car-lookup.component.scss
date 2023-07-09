@@ -23,6 +23,7 @@
       display: flex;
       flex-direction: column;
       gap: 3px;
+      position: relative;
 
       .area {
         display: flex;
@@ -31,9 +32,12 @@
       }
 
       label {
-        color: rgba(51, 51, 51, 0.50);
+        color: rgba(51, 51, 51, 0.5);
         font-size: 13px;
         font-weight: 600;
+        position: absolute;
+        top: calc(50% - 8px);
+        z-index: 1;
       }
 
       input {
@@ -53,9 +57,11 @@
 
       i {
         position: absolute;
-        right: 0;
+        right: 13px;
         cursor: pointer;
         color: rgba(51, 51, 51, 0.5);
+        text-align: 0;
+        top: calc(50% - 8px);
       }
     }
 
@@ -140,4 +146,10 @@
       }
     }
   }
+}
+input:valid ~ label,
+input:focus ~ label {
+  color: rgb(10, 131, 212);
+  transform: translateY(-15px);
+  font-size: .6rem;
 }

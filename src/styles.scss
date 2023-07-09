@@ -9,7 +9,16 @@ body {
   padding: 0;
   font-family: "Inter";
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 button {
   border: none;
   outline: none;
@@ -45,7 +54,7 @@ input:-webkit-autofill:active {
     .table-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
 
       button {
         width: 26px;
@@ -86,4 +95,50 @@ input:-webkit-autofill:active {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.input {
+  width: 422px;
+  height: 70px;
+  left: 862px;
+  top: 384px;
+  background: #FFFFFF;
+  border: 2px solid rgba(217, 217, 217, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 21px;
+  &.notValid {
+    border: 2px solid rgb(255 0 0 / 50%);
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    label {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      color: rgba(51, 51, 51, 0.5);
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      color: #333333;
+    }
+  }
 }

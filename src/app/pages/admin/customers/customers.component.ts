@@ -15,14 +15,14 @@ export class CustomersComponent {
   Response: PagingResponse = new PagingResponse();
   Request: PagingRequest = new PagingRequest();
   ServiceAgreementLevels: any[] = []
+  ServiceAgreements:any[]=[]
   loading: boolean = false;
   constructor(private service: CustomersService) {
-    this.getCustomers(new PagingRequest());
-
+    this.service.getServiceAgreements(this);
   };
 
   getCustomers(req: PagingRequest) {
     this.Request = req;
-    this.service.getCustomers(this);
+    this.service.getCustomers();
   }
 }

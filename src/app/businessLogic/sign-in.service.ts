@@ -9,12 +9,14 @@ import { ValidatePersonalID } from '../Validators/ValidatePersonalID';
 import { getTranslatedServiceError } from '../Errors/serviceErrors';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomersApiService } from '../services/customers.api.service';
+import { LoginComponent } from '../auth/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignInService {
   SignInRequest: SignInRequest = new SignInRequest();
+  component: LoginComponent;
   constructor(
     private router: Router,
     public messageService: MessageService,
@@ -22,7 +24,8 @@ export class SignInService {
     private translate: TranslateService,
     private service: CustomersApiService
   ) { }
-  SignIn(req: SignInRequestDTO) {
+  SignIn(req: SignInRequestDTO, component: LoginComponent) {
+    this.component = component;
     if (this.checkAllValidations(req)) {
       this.SendSignInRequest(req);
     }
@@ -48,7 +51,9 @@ export class SignInService {
   SendSignInRequest(SignInRequest: SignInRequestDTO) {
     this.SignInRequest.userName = SignInRequest.personalId.value;
     this.SignInRequest.password = SignInRequest.password.value;
+
     this.service.SignIn(this.SignInRequest).subscribe(resp => {
+      this.component.loading = false;
       if (resp.succeeded) {
         this.storage.saveObject('SignInResult', resp.data)
         this.routeByRole(resp.data);
@@ -59,6 +64,7 @@ export class SignInService {
     })
   }
   routeByRole(data: any) {
+    console.log(data);
     if (data.accounts.length === 1) {
       this.router.navigate(['./customer/cars']);
       this.storage.saveObject('selectedPermission', data.accounts[0]);

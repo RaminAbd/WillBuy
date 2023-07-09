@@ -13,7 +13,7 @@ import { SignInRequestDTO } from '../../models/SignInRequestDTO.model';
 export class LoginComponent implements OnInit {
   signInRequest: SignInRequestDTO = new SignInRequestDTO();
   form: FormGroup;
-
+  loading:boolean = false;
   constructor(private router: Router, private service: SignInService,  private formBuilder: FormBuilder,) {
 
   };
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['./recover'])
   }
   submit() {
-    this.service.SignIn(this.signInRequest);
+    this.loading = true;
+    this.service.SignIn(this.signInRequest, this);
   }
 }

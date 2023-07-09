@@ -1,0 +1,71 @@
+<div class="admin-filter-table-wrapper">
+  <p-table #dt1 [value]="PagingResponse.items" dataKey="id" [rows]="10" [loading]="loading">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        <button (click)="OpenUpsert()">
+          <i class="pi pi-plus"></i>
+        </button>
+        <div class="search-clear">
+          <button class="clear" (click)="Clear()"><i class="pi pi-filter-slash"></i></button>
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search" (click)="Search()"></i>
+            <input pInputText type="text" [(ngModel)]="PagingRequest.SearchText" (keyup.enter)="Search()" placeholder="Search keyword" />
+          </span>
+        </div>
+
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Personal ID</th>
+        <th>Phone number</th>
+        <th>
+          Service agreement
+          <p-columnFilter field="status" matchMode="in" display="menu" [showMatchModes]="false"
+          [showOperator]="false" [showAddButton]="false" [showApplyButton]="false" [showClearButton]="false" >
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="selectedServiceAgreement" [options]="ServiceAgreements" (ngModelChange)="getValue($event, 1)" optionLabel="name" placeholder="Any"></p-dropdown>
+            </ng-template>
+        </p-columnFilter>
+        </th>
+        <th>
+          Agreeement level
+          <p-columnFilter field="status" matchMode="in" display="menu" [showMatchModes]="false"
+          [showOperator]="false" [showAddButton]="false" [showApplyButton]="false" [showClearButton]="false" >
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="selectedServiceAgreementLevel" [options]="ServiceAgreementLevels" (ngModelChange)="getValue($event, 2)" optionLabel="name" placeholder="Any"></p-dropdown>
+            </ng-template>
+        </p-columnFilter>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        <td> {{ customer.firstName }} </td>
+        <td> {{ customer.lastName }} </td>
+        <td> {{ customer.personalId }} </td>
+        <td> {{ customer.phoneNumber }} </td>
+        <td> {{ customer.serviceAgreement }} </td>
+        <td> {{ customer.serviceAgreementLevel }} </td>
+        <td> <span><img (click)="OpenUpsert(customer.id)" src="assets/images/edit-icon.svg" alt=""> </span></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="1" [rows]="PagingResponse.pageSize"
+    [totalRecords]="PagingResponse.totalCount"></p-paginator>
+</div>
+
+<p-dialog header="Code" class="code" [(visible)]="visible" [style]="{width: '40vw'}">
+  <div class="item">
+    <input type="number" [(ngModel)]="customerCode">
+  </div>
+  <button (click)="sendRequest()">Create</button>
+</p-dialog>

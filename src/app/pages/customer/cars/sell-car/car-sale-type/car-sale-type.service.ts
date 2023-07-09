@@ -21,7 +21,7 @@ export class CarSaleTypeService {
     this.service.get(this.service.serviceUrl + 'GetAll/', this.translate.currentLang, null).subscribe(resp => {
       console.log(resp);
       this.component.SaleTypes = resp.data;
-      this.component.selectedSaleType = resp.data[0];
+      this.component.selectedTypeChanged(resp.data[0])
     })
   }
   getForm(component: CarSaleTypeComponent) {

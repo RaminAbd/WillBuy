@@ -1,10 +1,7 @@
 <div class="admins-wrapper">
   <app-admin-filter-table
   [PagingResponse]="Response"
-  [Customers]="Admins"
   [loading]="loading"
-  [ServiceAgreementLevels]="ServiceAgreementLevels"
   (getByPaging)="getAdmins($event)"
-  [tableType]="1"
   ></app-admin-filter-table>
 </div>

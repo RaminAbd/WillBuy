@@ -1,10 +1,9 @@
 <div class="admins-wrapper">
-  <app-admin-filter-table
+  <app-users-table
   [PagingResponse]="Response"
-  [Customers]="Customers"
   [loading]="loading"
   [ServiceAgreementLevels]="ServiceAgreementLevels"
+  [ServiceAgreements]="ServiceAgreements"
   (getByPaging)="getCustomers($event)"
-  [tableType]="3"
-  ></app-admin-filter-table>
+  ></app-users-table>
 </div>

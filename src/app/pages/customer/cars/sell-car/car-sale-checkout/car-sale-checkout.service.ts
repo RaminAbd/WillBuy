@@ -14,6 +14,7 @@ export class CarSaleCheckoutService {
     private router: Router,
     private apiService: CarAddingApiService
   ) { }
+
   getForm(component: CarSaleCheckoutComponent) {
     this.component = component;
     var vin = this.component.route.snapshot.paramMap.get('vin') as string;
@@ -25,28 +26,32 @@ export class CarSaleCheckoutService {
       this.goToLookUp();
     }
   }
-  goToSaleType() {
-    this.router.navigate(['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin], {
-      queryParams: { animate: true }
-    });
-  }
+
   AddCar() {
     this.apiService.AddCar(this.component.Form).subscribe(resp => {
-      console.log(resp);
       if (resp.succeeded) {
         this.goToFinish();
         this.storage.removeObject(this.component.Form.vin);
       }
     })
   }
+
   goToFinish() {
     this.router.navigate(['customer', 'cars', 'sell', 'finish', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }
+
   goToLookUp() {
     this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
+
+  goToSaleType() {
+    this.router.navigate(['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin], {
+      queryParams: { animate: true }
+    });
+  }
+
 }

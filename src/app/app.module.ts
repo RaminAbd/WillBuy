@@ -48,6 +48,7 @@ import { CarSaleTypeComponent } from './pages/customer/cars/sell-car/car-sale-ty
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CarSaleCheckoutComponent } from './pages/customer/cars/sell-car/car-sale-checkout/car-sale-checkout.component';
 import { CarSaleFinishComponent } from './pages/customer/cars/sell-car/car-sale-finish/car-sale-finish.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -83,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     VehicleInvoiceComponent,
     CarSaleTypeComponent,
     CarSaleCheckoutComponent,
-    CarSaleFinishComponent
+    CarSaleFinishComponent,
+    UsersTableComponent
   ],
   imports: [
     BrowserModule,

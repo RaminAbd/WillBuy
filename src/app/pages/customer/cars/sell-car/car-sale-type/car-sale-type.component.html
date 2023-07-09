@@ -13,26 +13,32 @@
     </div>
     <div class="selected-inputs">
       <div class="direct-type" *ngIf="selectedSaleType.code === 1">
-        <div class="input-item">
-          <label>Price in USD</label>
-          <div class="area">
-            <input type="number" [(ngModel)]="Form.directSaleOption.price">
+        <div class="input">
+          <div class="left">
+            <label for="vinCode">Price in USD</label>
+            <input type="number" id="vinCode" [(ngModel)]="Form.directSaleOption.price">
+          </div>
+          <div class="right">
             <p>$</p>
           </div>
         </div>
       </div>
       <div class="trading-type" *ngIf="selectedSaleType.code === 2">
-        <div class="input-item">
-          <label>Minimum price in USD</label>
-          <div class="area">
-            <input type="number" [(ngModel)]="Form.tradingSaleOption.minimalPrice">
+        <div class="input">
+          <div class="left">
+            <label for="vinCode">Minimum price in USD</label>
+            <input type="number" id="vinCode" [(ngModel)]="Form.tradingSaleOption.minimalPrice">
+          </div>
+          <div class="right">
             <p>$</p>
           </div>
         </div>
-        <div class="input-item">
-          <label>The amount i want</label>
-          <div class="area">
-            <input type="number" [(ngModel)]="Form.tradingSaleOption.desiredPrice">
+        <div class="input">
+          <div class="left">
+            <label for="vinCode">The amount i want</label>
+            <input type="number" id="vinCode" [(ngModel)]="Form.tradingSaleOption.desiredPrice">
+          </div>
+          <div class="right">
             <p>$</p>
           </div>
         </div>
