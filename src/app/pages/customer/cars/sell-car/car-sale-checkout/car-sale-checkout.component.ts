@@ -3,6 +3,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { CarAddingForm } from 'src/app/models/CarAddingForm.model';
 import { ActivatedRoute } from '@angular/router';
 import { CarSaleCheckoutService } from './car-sale-checkout.service';
+import { CheckOut } from 'src/app/pages/admin/pending-cars/shared/models/CheckOut.model';
 @Component({
   selector: 'app-car-sale-checkout',
   templateUrl: './car-sale-checkout.component.html',
@@ -21,6 +22,7 @@ import { CarSaleCheckoutService } from './car-sale-checkout.service';
   ]
 })
 export class CarSaleCheckoutComponent {
+  CheckOut:CheckOut = new CheckOut();
   animate: boolean;
   Form: CarAddingForm = new CarAddingForm();
   constructor(

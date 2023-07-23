@@ -9,7 +9,7 @@
         <img src="assets/images/upload.svg" alt="">
         Upload
       </label>
-      <input id="file" type="file" [(ngModel)]="file" (change)="getFile($event)" multiple="false" accept="application/pdf,image/jpeg,image/png,image/jpg">
+      <input id="file" type="file" [(ngModel)]="file" (change)="getFile($event)" multiple="false" accept="application/pdf">
     </div>
     <div class="file-preview"  [@slideInOut]="Form.carDocument ? 'in' : 'out'" *ngIf="Form.carDocument">
       <div class="format-name">

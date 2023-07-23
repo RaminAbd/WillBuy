@@ -26,7 +26,11 @@ export class AdminPageHeaderComponent {
         const activeRoute = this.router.url;
         const pageTitle = activeRoute.split('/').pop();
         if (pageTitle) {
-          const formattedTitle = pageTitle.replace(/[-_]/g, ' ').charAt(0).toUpperCase() + pageTitle.slice(1);
+          var formattedTitle = pageTitle.replace(/[-_]/g, ' ').charAt(0).toUpperCase() + pageTitle.slice(1);
+          var multiple = formattedTitle.split('-');
+          if (multiple.length > 1) {
+            formattedTitle = multiple[0] + ' ' + multiple[1];
+          }
           this.PageTitle = formattedTitle;
         }
       }

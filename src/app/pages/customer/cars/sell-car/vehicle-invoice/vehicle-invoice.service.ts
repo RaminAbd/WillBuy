@@ -20,7 +20,6 @@ export class VehicleInvoiceService {
     var form = this.storage.getObject(vin)
     if (form) {
       this.component.Form = form;
-      console.log(form);
     }
     else {
       this.goToLookUp();
@@ -38,10 +37,9 @@ export class VehicleInvoiceService {
       const fd = new FormData();
       fd.append('file', files[i]);
       this.blob.UploadFile(fd).subscribe((resp: any) => {
-        this.component.Form.carDocument = resp.data;
+        this.component.Form.carDocument = resp;
         this.component.disableNext = false;
-        this.component.Form.carDocument.extension = resp.data.fileExtension.split('/')[1].toUpperCase();
-        console.log(this.component.Form);
+        this.component.Form.carDocument.extension = resp.fileExtension.split('/')[1].toUpperCase();
         this.component.file = null;
       });
     }

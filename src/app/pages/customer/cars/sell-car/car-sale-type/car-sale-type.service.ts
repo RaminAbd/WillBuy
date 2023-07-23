@@ -19,9 +19,8 @@ export class CarSaleTypeService {
 
   getSaleTypes() {
     this.service.get(this.service.serviceUrl + 'GetAll/', this.translate.currentLang, null).subscribe(resp => {
-      console.log(resp);
-      this.component.SaleTypes = resp.data;
-      this.component.selectedTypeChanged(resp.data[0])
+      this.component.SaleTypes = resp;
+      this.component.selectedTypeChanged(resp[0])
     })
   }
   getForm(component: CarSaleTypeComponent) {
@@ -30,7 +29,6 @@ export class CarSaleTypeService {
     var form = this.storage.getObject(vin)
     if (form) {
       this.component.Form = form;
-      console.log(form);
       if (this.component.Form.carFaxOption === 2 && !this.component.Form.carFax) {
         this.goToDescribeVehicle();
         return;

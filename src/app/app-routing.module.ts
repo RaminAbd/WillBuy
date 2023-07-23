@@ -22,6 +22,8 @@ import { VehicleInvoiceComponent } from './pages/customer/cars/sell-car/vehicle-
 import { CarSaleTypeComponent } from './pages/customer/cars/sell-car/car-sale-type/car-sale-type.component';
 import { CarSaleCheckoutComponent } from './pages/customer/cars/sell-car/car-sale-checkout/car-sale-checkout.component';
 import { CarSaleFinishComponent } from './pages/customer/cars/sell-car/car-sale-finish/car-sale-finish.component';
+import { PendingCarsComponent } from './pages/admin/pending-cars/pending-cars.component';
+import { WorkOrderDetailComponent } from './pages/admin/pending-cars/shared/pages/work-order-detail/work-order-detail.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: LoginComponent },
@@ -58,6 +60,8 @@ const routes: Routes = [
       { path: 'admins', component: AdminsComponent, canActivate: [RoleGuard], data: { permissionTypes: [3] } },
       { path: 'operators', component: OperatorsComponent, canActivate: [RoleGuard], data: { permissionTypes: [3] } },
       { path: 'customers', component: CustomersComponent, canActivate: [RoleGuard], data: { permissionTypes: [3, 2] } },
+      { path: 'cars', component: PendingCarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [3, 2] }, },
+      { path: 'cars/vehicle-details', component: WorkOrderDetailComponent, canActivate: [RoleGuard], data: { permissionTypes: [3, 2] }, },
       { path: '', redirectTo: 'admins', pathMatch: 'full' },
 
     ]

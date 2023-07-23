@@ -1,0 +1,7 @@
+<div class="reject-wrapper">
+  <p-dropdown [ngModel]="RejectReason" [options]="RejectReasons" optionLabel="name" placeholder="Any"></p-dropdown>
+  <div class="buttons">
+    <button class="reject" (click)="cancel()">Cancel</button>
+    <button class="accept" (click)="submit()">Submit</button>
+  </div>
+</div>

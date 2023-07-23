@@ -29,7 +29,6 @@ export class VerificationService {
       var request = new VerificationCodeRequest();
       request.source = requestDTO.phoneNumber.value;
       request.verificationType = requestDTO.selectedType ? 1 : 1;
-      console.log(request);
       this.service.SendVerificationCode(request).subscribe(resp => { })
     }
     else {
@@ -66,15 +65,9 @@ export class VerificationService {
     request.password = req.password.value;
     request.phoneNumber = req.phoneNumber.value;
     request.personalId = req.personalId.value;
-    console.log(request);
     this.customerService.Create(this.customerService.serviceUrl, request).subscribe(resp => {
-      if (resp.succeeded) {
-        this.router.navigate(['./sign-in']);
-        this.storage.removeObject('signUpReq');
-      }
-      else {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
-      }
+      this.router.navigate(['./sign-in']);
+      this.storage.removeObject('signUpReq');
     })
   }
 }

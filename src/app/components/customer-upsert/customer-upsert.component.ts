@@ -9,7 +9,6 @@ import { CreateCustomerRequest } from 'src/app/models/CreateCustomerRequest.mode
 })
 export class CustomerUpsertComponent {
   constructor(public ref: DynamicDialogRef, public dialogService: DialogService, public config: DynamicDialogConfig,) {
-    console.log(this.config.data);
     this.request = this.config.data;
   };
   request: CreateCustomerRequest = new CreateCustomerRequest()

@@ -49,6 +49,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { CarSaleCheckoutComponent } from './pages/customer/cars/sell-car/car-sale-checkout/car-sale-checkout.component';
 import { CarSaleFinishComponent } from './pages/customer/cars/sell-car/car-sale-finish/car-sale-finish.component';
 import { UsersTableComponent } from './components/users-table/users-table.component';
+import { PendingCarsComponent } from './pages/admin/pending-cars/pending-cars.component';
+import { WorkOrderDetailComponent } from './pages/admin/pending-cars/shared/pages/work-order-detail/work-order-detail.component';
+import { GalleriaModule } from 'primeng/galleria';
+import { ImageModule } from 'primeng/image';
+import { RejectDialogComponent } from './pages/admin/pending-cars/shared/components/reject-dialog/reject-dialog.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -85,13 +90,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarSaleTypeComponent,
     CarSaleCheckoutComponent,
     CarSaleFinishComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    PendingCarsComponent,
+    WorkOrderDetailComponent,
+    RejectDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
+    ImageModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DialogModule,
@@ -102,6 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DynamicDialogModule,
     InputSwitchModule,
     HttpClientModule,
+    GalleriaModule,
     RadioButtonModule,
     TranslateModule.forRoot({
       loader: {

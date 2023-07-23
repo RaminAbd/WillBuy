@@ -21,7 +21,6 @@ export class SwitchAccountComponent {
     this.service.getAccounts(this);
   }
   continueWithRole(item: UserAccounts) {
-    console.log(item);
     this.service.continueByRole(item);
   }
 }

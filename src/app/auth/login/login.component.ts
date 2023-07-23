@@ -13,9 +13,12 @@ import { SignInRequestDTO } from '../../models/SignInRequestDTO.model';
 export class LoginComponent implements OnInit {
   signInRequest: SignInRequestDTO = new SignInRequestDTO();
   form: FormGroup;
-  loading:boolean = false;
-  constructor(private router: Router, private service: SignInService,  private formBuilder: FormBuilder,) {
-
+  loading: boolean = false;
+  constructor(
+    private router: Router, private service: SignInService, private formBuilder: FormBuilder,) {
+    var systemLang = localStorage.getItem('systemLanguage') as string;
+    localStorage.clear();
+    localStorage.setItem('systemLanguage', systemLang);
   };
 
   ngOnInit(): void {

@@ -31,7 +31,7 @@ export class UsersTableService {
 
   getUserById(id: string) {
     this.customerService.GetById(this.customerService.serviceUrl, id).subscribe(resp => {
-      this.openDialog(resp.data)
+      this.openDialog(resp)
     })
   }
 
@@ -77,7 +77,6 @@ export class UsersTableService {
     request.source = req.phoneNumber;
     request.verificationType = 1;
     this.component.CreateCustomerRequest = req;
-    console.log(request);
     this.verificationService.SendVerificationCode(request).subscribe(resp => { })
   }
 
@@ -85,7 +84,6 @@ export class UsersTableService {
     req.communicationType = 1;
     req.code = this.component.customerCode;
     this.customerService.Create(this.customerService.serviceUrl, req).subscribe(resp => {
-      console.log(resp, "vsdvdsvdsd");
       this.component.getByPaging.emit(new PagingRequest());
     })
   }

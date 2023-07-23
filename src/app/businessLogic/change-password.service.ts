@@ -30,15 +30,8 @@ export class ChangePasswordService {
       request.password = component.RecoverRequestDTO.password.value;
       request.code = component.UserCode;
       request.userName = component.route.snapshot.paramMap.get('personalId') as string;
-      console.log(request);
-      this.service.ForgotPassword(request).subscribe((resp:any) => {
-        console.log(resp);
-        if (resp.succeeded) {
-          component.router.navigate(['./sign-in'])
-        }
-        else {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Someting went wrong!' });
-        }
+      this.service.ForgotPassword(request).subscribe((resp: any) => {
+        component.router.navigate(['./sign-in'])
       })
     }
   }
@@ -48,7 +41,6 @@ export class ChangePasswordService {
     RecoverRequestIsValid = this.ValidateUserCode(component, RecoverRequestIsValid);
     RecoverRequestIsValid = this.ValidatePassword(request, RecoverRequestIsValid);
     RecoverRequestIsValid = this.ValidateConfirmPassword(request, RecoverRequestIsValid);
-    console.log(RecoverRequestIsValid);
     return RecoverRequestIsValid;
   }
 

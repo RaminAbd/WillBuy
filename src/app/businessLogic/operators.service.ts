@@ -17,10 +17,9 @@ export class OperatorsService {
   getOperators(component: OperatorsComponent) {
     this.component = component;
     this.opService.GetAllWithPaging(this.opService.serviceUrl, this.component.Request).subscribe(resp => {
-      console.log(resp);
-      this.component.Operators = resp.data.items;
+      this.component.Operators = resp.items;
       this.component.loading =  false
-      this.component.Response = resp.data
+      this.component.Response = resp
     })
   }
 }

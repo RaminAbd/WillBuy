@@ -5,13 +5,13 @@
 
   <div class="lookup-body">
     <div class="bill">
-      <div class="item">
+      <div class="item" *ngIf="CheckOut.items.length > 1">
         <p class="key">Car adding price</p>
-        <p class="value">$200</p>
+        <p class="value">${{CheckOut.items[1]?.amount}}</p>
       </div>
       <div class="item">
         <p class="key">Carfax</p>
-        <p class="value">$10</p>
+        <p class="value">${{CheckOut.items[0]?.amount}}</p>
       </div>
       <div class="item">
         <p class="key">Bank commission </p>
@@ -19,7 +19,7 @@
       </div>
       <div class="item total">
         <p class="key">Total</p>
-        <p class="value">$212</p>
+        <p class="value">${{CheckOut.totalAmount}}</p>
       </div>
     </div>
     <div class="money-refunded">

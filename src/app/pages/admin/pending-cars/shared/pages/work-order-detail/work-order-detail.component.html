@@ -1,0 +1,84 @@
+<div class="work-order-detail">
+  <div class="images">
+    <div class="main-image">
+      <p-image [src]="carDetail.car.photos[0]" alt="Image" width="250" [preview]="true"></p-image>
+    </div>
+    <div class="previews">
+      <!-- <img [src]="carDetail.car.photos[1]" alt=""> -->
+      <p-image [src]="carDetail.car.photos[1]" alt="Image" width="250" [preview]="true"></p-image>
+      <p-image [src]="carDetail.car.photos[2]" alt="Image" width="250" [preview]="true"></p-image>
+      <p-image [src]="carDetail.car.photos[3]" alt="Image" width="250" [preview]="true"></p-image>
+      <p-image [src]="carDetail.car.photos[4]" alt="Image" width="250" [preview]="true"></p-image>
+      <p-image [src]="carDetail.car.photos[5]" alt="Image" width="250" [preview]="true"></p-image>
+      <div class="more-block" (click)="displayBasic = true">
+        <div class="back">
+          <p>More</p>
+        </div>
+        <img class="more" [src]="carDetail.car.photos[6]" alt="">
+      </div>
+
+    </div>
+  </div>
+  <div class="car-info">
+    <div class="name">
+      <h3>{{carDetail.car.year + ' ' + carDetail.car.make + ' ' + carDetail.car.model}}</h3>
+    </div>
+    <div class="small-info">
+      <p>{{carDetail.car.odometer}}</p>
+      <p>{{carDetail.car.color}}</p>
+      <p>{{carDetail.car.engineType}}</p>
+      <p>{{carDetail.car.fuel}}</p>
+    </div>
+    <div class="documents">
+      <div class="item" (click)="openDocument(carDetail.carFax)">
+        <p>Carfax</p>
+        <img src="assets/images/document-icon.svg" alt="">
+      </div>
+      <div class="item" (click)="openDocument(carDetail.carDocument)">
+        <p>Document</p>
+        <img src="assets/images/document-icon.svg" alt="">
+      </div>
+    </div>
+    <div class="sale-type">
+      <div class="item">
+        <h4 class="head">{{carDetail.saleOption === 1 ? 'Direct' : 'Trading'}}</h4>
+        <p>Sale Type</p>
+      </div>
+      <div class="item">
+        <h4 class="head">
+          $ {{carDetail.saleOption === 1?  carDetail.directSaleOption.price : carDetail.tradingSaleOption.minimalPrice}}
+        </h4>
+        <p>{{carDetail.saleOption === 1?'Price' : 'Minimal price'}}</p>
+      </div>
+      <div class="item" *ngIf="carDetail.saleOption !== 1">
+        <h4 class="head">$ {{carDetail.tradingSaleOption.desiredPrice}}</h4>
+        <p>Desired price</p>
+      </div>
+    </div>
+    <div class="owner">
+      <div class="item">
+        <p>Owner Id</p>
+        <p (click)="goToCustomer(carDetail.customer)" class="link-to-cus">{{carDetail.customer.personalId}}</p>
+      </div>
+      <div class="item">
+        <p>Owner type</p>
+        <p class="owner-type">{{getPermissionTypeName(carDetail.customer.accountType)}}</p>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="reject" (click)="Reject()">Reject</button>
+      <button class="accept" (click)="Accept()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<p-galleria [value]="carDetail.car.photos" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions"
+  [containerStyle]="{ 'max-width': '850px' }" [numVisible]="7" [circular]="true" [fullScreen]="true"
+  [showItemNavigators]="true" [showThumbnails]="false">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item" style="width: 100%; display: block;" />
+  </ng-template>
+</p-galleria>

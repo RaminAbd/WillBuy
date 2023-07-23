@@ -7,18 +7,20 @@ import {
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { LocalStorageService } from '../services/local-storage.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   token: string;
-  constructor() { }
+  constructor(private storage: LocalStorageService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.token = localStorage.getItem("token") as string;
-    const systemLanguage = localStorage.getItem("systemLanguage") as string;
-    if (this.token) {
+    var sResult = this.storage.getObject("SignInResult") as any;
+    if (sResult) {
+      this.token = sResult.accessToken;
+      const systemLanguage = localStorage.getItem("systemLanguage") as string;
       const req1 = req.clone({
         setHeaders: {
-          'Authorization': 'Bearer ' + this.token,
-          'Accept-Language': systemLanguage
+          'Authorization': `Bearer ${this.token}`,
+          'Lang': systemLanguage
         }
       });
       return next.handle(req1);

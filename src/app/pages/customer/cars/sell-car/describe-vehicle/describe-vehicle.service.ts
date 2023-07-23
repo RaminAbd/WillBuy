@@ -22,7 +22,6 @@ export class DescribeVehicleService {
     if (form) {
       this.component.Form = form;
       this.component.Form.carFaxOption = 2;
-      console.log(form);
       if(this.component.Form.requiresCarDocument && !this.component.Form.carDocument){
         this.goToVehicleInvoice();
       }
@@ -48,10 +47,9 @@ export class DescribeVehicleService {
       const fd = new FormData();
       fd.append('file', files[i]);
       this.blob.UploadFile(fd).subscribe((resp: any) => {
-        this.component.Form.carFax = resp.data;
-        this.component.Form.carFax.extension = resp.data.fileExtension.split('/')[1].toUpperCase();
+        this.component.Form.carFax = resp;
+        this.component.Form.carFax.extension = resp.fileExtension.split('/')[1].toUpperCase();
         this.component.disableNext = false;
-        console.log(this.component.Form);
         this.component.file = null;
       });
     }

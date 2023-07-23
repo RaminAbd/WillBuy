@@ -47,7 +47,6 @@ export class SignUpService {
     SignUpRequestIsValid = this.validateUserFirstName(SignUpRequest, SignUpRequestIsValid);
     SignUpRequestIsValid = this.validateUserLastName(SignUpRequest, SignUpRequestIsValid);
     SignUpRequestIsValid = this.ValidatePassword(SignUpRequest, SignUpRequestIsValid);
-    console.log(SignUpRequestIsValid);
     return SignUpRequestIsValid;
   }
 

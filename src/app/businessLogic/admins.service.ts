@@ -17,10 +17,9 @@ export class AdminsService {
   getAdmins(component: AdminsComponent) {
     this.component = component;
     this.adminService.GetAllWithPaging(this.adminService.serviceUrl, this.component.Request).subscribe(resp => {
-      console.log(resp);
-      this.component.Admins = resp.data.items;
+      this.component.Admins = resp.items;
       this.component.loading =  false
-      this.component.Response = resp.data
+      this.component.Response = resp
     })
   }
 }

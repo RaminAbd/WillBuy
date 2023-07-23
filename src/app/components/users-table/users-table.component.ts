@@ -28,10 +28,8 @@ export class UsersTableComponent extends AdminFilterTableComponent {
   }
 
   Search() {
-    console.log();
     this.PagingRequest.ServiceAgreementId = this.selectedServiceAgreement ? this.selectedServiceAgreement.id : '';
     this.PagingRequest.ServiceAgreementLevelId = this.selectedServiceAgreementLevel ? this.selectedServiceAgreementLevel.id : '';
-    console.log(this.PagingRequest);
     this.getByPaging.emit(this.PagingRequest)
   }
 

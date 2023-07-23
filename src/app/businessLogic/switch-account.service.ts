@@ -20,7 +20,6 @@ export class SwitchAccountService {
     component.userAccounts.forEach(item => {
       item.permission = this.getPermissionTypeName(item.accountType);
     })
-    console.log(component.userAccounts);
   }
   getPermissionTypeName(type: number): string {
     switch (type) {
