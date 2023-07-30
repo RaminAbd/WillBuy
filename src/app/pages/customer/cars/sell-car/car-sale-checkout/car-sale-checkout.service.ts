@@ -5,59 +5,61 @@ import { Router } from '@angular/router';
 import { CarAddingApiService } from 'src/app/services/car-adding.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarSaleCheckoutService {
-  component: CarSaleCheckoutComponent
+  component: CarSaleCheckoutComponent;
   constructor(
     private storage: LocalStorageService,
     private router: Router,
-    private apiService: CarAddingApiService
-  ) { }
+    private apiService: CarAddingApiService,
+  ) {}
 
   getForm(component: CarSaleCheckoutComponent) {
     this.component = component;
     var vin = this.component.route.snapshot.paramMap.get('vin') as string;
-    var form = this.storage.getObject(vin)
+    var form = this.storage.getObject(vin);
     if (form) {
       this.component.Form = form;
       this.getCheckOut();
-    }
-    else {
+    } else {
       this.goToLookUp();
     }
   }
-  getCheckOut(){
-    this.apiService.GetCheckOut(this.component.Form).subscribe(resp=>{
+  getCheckOut() {
+    this.apiService.GetCheckOut(this.component.Form).subscribe((resp) => {
       this.component.CheckOut = resp;
-    })
+    });
   }
   AddCar() {
-    console.log(this.component.Form, "Add car form");
-    this.apiService.AddCar(this.component.Form).subscribe(resp => {
-      if(resp){
-        this.goToFinish();
-        this.storage.removeObject(this.component.Form.vin);
-      }
-    })
+    console.log(this.component.Form, 'Add car form');
+    this.apiService.AddCar(this.component.Form).subscribe((resp) => {
+      this.goToFinish();
+      this.storage.removeObject(this.component.Form.vin);
+    });
   }
 
   goToFinish() {
-    this.router.navigate(['customer', 'cars', 'sell', 'finish', this.component.Form.car.vin], {
-      queryParams: { animate: true }
-    });
+    this.router.navigate(
+      ['customer', 'cars', 'sell', 'finish', this.component.Form.car.vin],
+      {
+        queryParams: { animate: true },
+      },
+    );
   }
 
   goToLookUp() {
     this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
-      queryParams: { animate: true }
+      queryParams: { animate: true },
     });
   }
 
   goToSaleType() {
-    this.router.navigate(['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin], {
-      queryParams: { animate: true }
-    });
+    this.router.navigate(
+      ['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin],
+      {
+        queryParams: { animate: true },
+      },
+    );
   }
-
 }

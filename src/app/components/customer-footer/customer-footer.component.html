@@ -10,7 +10,11 @@
 
   </div>
   <div class="langs">
-    <p>English</p>
-    <p>USD</p>
+    <p style="cursor: pointer;" *ngIf="!showLanguages" (click)="showLanguages = true">{{selectedLanguage}}</p>
+    <div class="lang-change" *ngIf="showLanguages">
+      <p class="lang-item" (click)="selectLanguage('English', 'en-Us')">English</p>
+      <p class="lang-item" (click)="selectLanguage('Russian', 'ru-Ru')">Russian</p>
+      <p class="lang-item" (click)="selectLanguage('Azerbaijani', 'az-Aze')">Azerbaijani</p>
+    </div>
   </div>
 </div>

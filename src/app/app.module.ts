@@ -54,6 +54,7 @@ import { WorkOrderDetailComponent } from './pages/admin/pending-cars/shared/page
 import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
 import { RejectDialogComponent } from './pages/admin/pending-cars/shared/components/reject-dialog/reject-dialog.component';
+import { CarsListHeaderComponent } from './pages/customer/cars/cars-list/shared/components/cars-list-header/cars-list-header.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -93,7 +94,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsersTableComponent,
     PendingCarsComponent,
     WorkOrderDetailComponent,
-    RejectDialogComponent
+    RejectDialogComponent,
+    CarsListHeaderComponent
   ],
   imports: [
     BrowserModule,
