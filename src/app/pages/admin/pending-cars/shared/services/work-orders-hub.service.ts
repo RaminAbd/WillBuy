@@ -3,17 +3,18 @@ import * as signalR from '@microsoft/signalr';
 import { PendingCarsEmitters } from '../models/PendingCarsEmitters';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WorkOrdersHubService {
   connection: any;
   userInfo: any;
+  enableReconnection: boolean = false;
   emitters: PendingCarsEmitters = new PendingCarsEmitters();
-  constructor(
-    private storage: LocalStorageService
-  ) { }
+
+  constructor(private storage: LocalStorageService) {}
 
   buildConnection() {
+    this.enableReconnection = true;
     var resp = this.storage.getObject('SignInResult');
     if (resp) {
       var token = resp.accessToken;
@@ -22,9 +23,11 @@ export class WorkOrdersHubService {
           skipNegotiation: false,
           transport: signalR.HttpTransportType.LongPolling,
           accessTokenFactory: () => token,
-
         })
-        .withAutomaticReconnect([5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 10000, 10000, 10000])
+        .withAutomaticReconnect([
+          5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 10000, 10000,
+          10000,
+        ])
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
@@ -34,24 +37,25 @@ export class WorkOrdersHubService {
   }
 
   openConnections() {
-    this.connection.on('Connected', (value: any) => { })
+    this.connection.on('Connected', (value: any) => {});
     this.connection.on('ConnectionFailed', (value: any) => {
-      this.buildConnection()
-    })
+      this.buildConnection();
+    });
     this.connection.onclose((error: Error | undefined) => {
-      this.reconnect();
+      if (this.enableReconnection) this.reconnect();
     });
 
     this.connection.on('WorkOrdersReceived', (value: any) => {
-      this.emitters.WorkOrdersReceived.emit(value)
-    })
+      this.emitters.WorkOrdersReceived.emit(value);
+    });
   }
 
   startConnection() {
-    this.connection.start()
+    this.connection
+      .start()
       .then(() => {
         console.log('Connection established');
-        this.joinToConnection()
+        this.joinToConnection();
       })
       .catch((error: Error) => {
         this.reconnect();
@@ -68,7 +72,7 @@ export class WorkOrdersHubService {
       this.buildConnection();
     }, 5000);
   }
-
-
-
+  disableReconnection() {
+    this.enableReconnection = false;
+  }
 }

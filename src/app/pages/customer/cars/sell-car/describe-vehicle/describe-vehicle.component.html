@@ -16,7 +16,7 @@
         Upload manually
       </label>
       <input id="file" type="file" [disabled]="includeCarFax" [(ngModel)]="file" (change)="getFile($event)"
-        multiple="false" accept="application/pdf,image/jpeg,image/png,image/jpg">
+        multiple="false" accept="application/pdf">
     </div>
     <div class="file-preview" [@slideInOut]="Form.carFax ? 'in' : 'out'" *ngIf="Form.carFax">
       <div class="format-name">

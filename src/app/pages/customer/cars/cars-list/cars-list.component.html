@@ -1,1 +1,116 @@
-<p>cars-list works!</p>
+<div class="cars-list-wrapper">
+  <div class="header">
+    <app-cars-list-header></app-cars-list-header>
+  </div>
+  <div class="cars-list-content">
+    <div class="search">
+      <div class="block">
+        <div class="search-icon" (click)="searchByVinCode()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="14"
+            viewBox="0 0 15 14"
+            fill="none"
+          >
+            <path
+              d="M12.6657 13.7809L8.20484 9.32006C7.80654 9.63869 7.34851 9.89094 6.83073 10.0768C6.31294 10.2627 5.76197 10.3556 5.17781 10.3556C3.73068 10.3556 2.50606 9.8543 1.50395 8.85166C0.501849 7.84903 0.000531057 6.62441 0 5.17781C0 3.73068 0.501318 2.50606 1.50395 1.50395C2.50659 0.501849 3.73121 0.000531057 5.17781 0C6.62494 0 7.84956 0.501318 8.85166 1.50395C9.85377 2.50659 10.3551 3.73121 10.3556 5.17781C10.3556 5.76197 10.2627 6.31294 10.0768 6.83073C9.89094 7.34851 9.63869 7.80654 9.32006 8.20484L13.8009 12.6856C13.9469 12.8317 14.0199 13.0109 14.0199 13.2233C14.0199 13.4358 13.9403 13.6216 13.7809 13.7809C13.6349 13.927 13.449 14 13.2233 14C12.9976 14 12.8118 13.927 12.6657 13.7809ZM5.17781 8.76245C6.17354 8.76245 7.02005 8.41381 7.71733 7.71653C8.4146 7.01925 8.76298 6.17301 8.76245 5.17781C8.76245 4.18208 8.41381 3.33557 7.71653 2.63829C7.01925 1.94101 6.17301 1.59264 5.17781 1.59317C4.18208 1.59317 3.33557 1.94181 2.63829 2.63909C1.94101 3.33637 1.59264 4.18261 1.59317 5.17781C1.59317 6.17354 1.94181 7.02005 2.63909 7.71733C3.33637 8.4146 4.18261 8.76298 5.17781 8.76245Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+        <div class="input-block">
+          <input
+            type="text"
+            placeholder="Search by VIN code"
+            [(ngModel)]="SearchValue"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="cars-list-and-count">
+      <div class="list">
+        <div class="item" *ngFor="let item of Sales">
+          <img [src]="item.car.preview" alt="" />
+          <div class="info">
+            <div class="name-info">
+              <div class="name">
+                <h3>
+                  {{
+                    item.car.year + " " + item.car.make + " " + item.car.model
+                  }}
+                </h3>
+              </div>
+              <div class="small-info">
+                <p>{{ item.car.odometer }}</p>
+                <p>{{ item.car.color }}</p>
+                <p>{{ item.car.engineType }}</p>
+                <p>{{ item.car.fuel }}</p>
+              </div>
+            </div>
+            <div class="auctionType">
+              <p>Auction type: <span>{{ item.car.auctionName }}</span></p>
+            </div>
+            <div class="prices">
+              <div class="items">
+                <div class="price-item">
+                  <h4 class="head">
+                    $
+                    {{
+                      item.saleOption === 1
+                        ? item.directSaleOption.price
+                        : item.tradingSaleOption.minimalPrice
+                    }}
+                  </h4>
+                  <p>{{ item.saleOption === 1 ? "Price" : "Minimal price" }}</p>
+                </div>
+                <div class="price-item" *ngIf="item.saleOption !== 1">
+                  <h4 class="head">
+                    $ {{ item.tradingSaleOption.desiredPrice }}
+                  </h4>
+                  <p>Desired price</p>
+                </div>
+              </div>
+
+              <div class="btn">
+                <div class="lot-number">
+                  <p>#{{ item.car.lotNumber }}</p>
+                </div>
+                <button>Detail</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cars-count">
+        <h3>Online Auto Auctions</h3>
+        <p>Vehicles available for sale</p>
+        <div class="numbers">
+          <div class="item">
+            <p #digit1>0</p>
+          </div>
+          <div class="item">
+            <p #digit2>0</p>
+          </div>
+          <div class="item">
+            <p #digit3>0</p>
+          </div>
+          <div class="item">
+            <p #digit4>0</p>
+          </div>
+          <div class="item">
+            <p #digit5>0</p>
+          </div>
+        </div>
+        <p class="description">
+          <span
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Architecto commodi cum debitis dignissimos dolorum error ex fuga,
+            hic incidunt itaque laboriosam mollitia obcaecati omnis quo quos
+            reprehenderit, rerum sit soluta.</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
