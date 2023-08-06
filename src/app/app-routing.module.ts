@@ -24,6 +24,11 @@ import { CarSaleCheckoutComponent } from './pages/customer/cars/sell-car/car-sal
 import { CarSaleFinishComponent } from './pages/customer/cars/sell-car/car-sale-finish/car-sale-finish.component';
 import { PendingCarsComponent } from './pages/admin/pending-cars/pending-cars.component';
 import { WorkOrderDetailComponent } from './pages/admin/pending-cars/shared/pages/work-order-detail/work-order-detail.component';
+import {
+  CarSalesDetailComponent
+} from "./pages/customer/cars/cars-list/shared/pages/car-sales-detail/car-sales-detail.component";
+import {SoldCarsComponent} from "./pages/customer/sold-cars/sold-cars.component";
+import {PurchasedCarsComponent} from "./pages/customer/purchased-cars/purchased-cars.component";
 
 const routes: Routes = [
   { path: 'sign-in', component: LoginComponent },
@@ -37,20 +42,24 @@ const routes: Routes = [
       {
         path: 'cars', component: CarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
           { path: 'list', component: CarsListComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-          {
-            path: 'sell', component: SellCarComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
-              { path: 'lookup', component: CarLookupComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: 'vehicle-invoice/:vin', component: VehicleInvoiceComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: 'describe/:vin', component: DescribeVehicleComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: 'sale-type/:vin', component: CarSaleTypeComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: 'checkout/:vin', component: CarSaleCheckoutComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: 'finish/:vin', component: CarSaleFinishComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-              { path: '', redirectTo: 'lookup', pathMatch: 'full' },
-            ]
-          },
+          { path: 'detail/:id', component: CarSalesDetailComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+
           { path: '', redirectTo: 'list', pathMatch: 'full' },
         ]
       },
+      {
+        path: 'sell', component: SellCarComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
+          { path: 'lookup', component: CarLookupComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: 'vehicle-invoice/:vin', component: VehicleInvoiceComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: 'describe/:vin', component: DescribeVehicleComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: 'sale-type/:vin', component: CarSaleTypeComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: 'checkout/:vin', component: CarSaleCheckoutComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: 'finish/:vin', component: CarSaleFinishComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+          { path: '', redirectTo: 'lookup', pathMatch: 'full' },
+        ]
+      },
+      { path: 'sold-cars', component: SoldCarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
+      { path: 'purchased-cars', component: PurchasedCarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
       { path: '', redirectTo: 'cars', pathMatch: 'full' },
 
     ]

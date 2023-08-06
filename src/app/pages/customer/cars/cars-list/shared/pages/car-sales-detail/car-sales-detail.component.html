@@ -1,0 +1,138 @@
+<div class="sales-detail">
+  <div class="work-order-info">
+    <div class="car-main-info">
+      <div class="images">
+        <div class="main-image">
+          <p-image
+            [src]="carDetail.car.photos[0]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+        </div>
+        <div class="previews">
+          <!-- <img [src]="carDetail.car.photos[1]" alt=""> -->
+          <p-image
+            [src]="carDetail.car.photos[1]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+          <p-image
+            [src]="carDetail.car.photos[2]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+          <p-image
+            [src]="carDetail.car.photos[3]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+          <p-image
+            [src]="carDetail.car.photos[4]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+          <p-image
+            [src]="carDetail.car.photos[5]"
+            alt="Image"
+            width="250"
+            [preview]="true"
+          ></p-image>
+          <div class="more-block" (click)="displayBasic = true">
+            <div class="back">
+              <p>More</p>
+            </div>
+            <img class="more" [src]="carDetail.car.photos[6]" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="car-info">
+      <div class="name">
+        <h3>
+          {{
+            carDetail.car.year +
+              " " +
+              carDetail.car.make +
+              " " +
+              carDetail.car.model
+          }}
+        </h3>
+      </div>
+      <div class="small-info">
+        <p>{{ carDetail.car.odometer }}</p>
+        <p>{{ carDetail.car.color }}</p>
+        <p>{{ carDetail.car.engineType }}</p>
+        <p>{{ carDetail.car.fuel }}</p>
+      </div>
+      <div class="view-history documents">
+        <div class="item" (click)="openDocument(carDetail.carFax)">
+          <p>View history</p>
+          <img src="assets/images/document-icon.svg" alt="" />
+        </div>
+      </div>
+      <div class="car-more-info">
+        <div class="item">
+          <p class="name">Fuel Type</p>
+          <p class="value">{{ carDetail.car.fuel }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Drivetrain</p>
+          <p class="value">{{ carDetail.car.drive }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Engine</p>
+          <p class="value">{{ carDetail.car.engineType }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Exterior Color</p>
+          <p class="value">{{ carDetail.car.color }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Transmission</p>
+          <p class="value">{{ carDetail.car.transmission }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Car keys</p>
+          <p class="value">{{ carDetail.car.carKeys }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Primary damage</p>
+          <p class="value">{{ carDetail.car.primaryDamage }}</p>
+        </div>
+        <div class="item">
+          <p class="name">Secondary damage</p>
+          <p class="value">{{ carDetail.car.secondaryDamage }}</p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="bid" *ngIf="carDetail.saleOption===2">
+          <input type="number" [disabled]="alreadyHasOffered" [(ngModel)]="BidValue" (ngModelChange)="changeButtonState()" min="{{carDetail.tradingSaleOption.minimalPrice}}" placeholder="Enter your bid (Minimum ${{carDetail.tradingSaleOption.minimalPrice}})" >
+          <button [disabled]="bidActionDisabled || alreadyHasOffered" (click)="tradingBid()">Place bid</button>
+        </div>
+        <div class="buy" *ngIf="carDetail.saleOption===1">
+          <button [disabled]="alreadyHasOffered" (click)="directBuy()">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-galleria
+  [value]="carDetail.car.photos"
+  [(visible)]="displayBasic"
+  [responsiveOptions]="responsiveOptions"
+  [containerStyle]="{ 'max-width': '850px' }"
+  [numVisible]="7"
+  [circular]="true"
+  [fullScreen]="true"
+  [showItemNavigators]="true"
+  [showThumbnails]="false"
+>
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item" style="width: 100%; display: block" />
+  </ng-template>
+</p-galleria>

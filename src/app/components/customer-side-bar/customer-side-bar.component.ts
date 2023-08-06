@@ -12,6 +12,6 @@ export class CustomerSideBarComponent {
     this.router.navigate(['./sign-in'])
   }
   sellCar(){
-    this.router.navigate(['./customer/cars/sell'])
+    this.router.navigate(['./customer/sell'])
   }
 }

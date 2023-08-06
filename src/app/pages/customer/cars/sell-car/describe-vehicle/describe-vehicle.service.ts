@@ -31,12 +31,12 @@ export class DescribeVehicleService {
     }
   }
   goToVehicleInvoice(){
-    this.router.navigate(['customer', 'cars', 'sell', 'vehicle-invoice', this.component.Form.car.vin], {
+    this.router.navigate(['customer',  'sell', 'vehicle-invoice', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }
   goToLookUp(){
-    this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
+    this.router.navigate(['customer',  'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
@@ -57,7 +57,7 @@ export class DescribeVehicleService {
 
   goToSaleType() {
     this.storage.saveObject(this.component.Form.car.vin, this.component.Form);
-    this.router.navigate(['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin], {
+    this.router.navigate(['customer',  'sell', 'sale-type', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }

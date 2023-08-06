@@ -3,6 +3,7 @@ import { LocalStorageService } from '../../../../../../../services/local-storage
 import { CarsListHeaderComponent } from './cars-list-header.component';
 import { BalancesApiService } from '../../../../../../../services/balances.api.service';
 import { UserBalance } from '../../models/user-balance.model';
+import {SalesHubService} from "../../services/sales-hub.service";
 
 @Injectable({
   providedIn: 'root',
@@ -12,16 +13,26 @@ export class CarsListHeaderService {
   constructor(
     private storage: LocalStorageService,
     private balanceApi: BalancesApiService,
-  ) {}
+    private hubService:SalesHubService
+  ) {
+    this.buildConection()
+  }
 
   getMyBalance() {
     var result = this.storage.getObject('SignInResult');
-    console.log(result);
     this.balanceApi
       .GetByUserId(result.userId)
       .subscribe((resp: UserBalance) => {
-        console.log(resp);
         this.component.UserBalance = resp.actualBalance;
       });
+  }
+  buildConection(){
+    this.hubService.buildConnection();
+    this.openConnections()
+  }
+  openConnections(){
+    this.hubService.emitters.NotificationReceived.subscribe((resp:any)=>{
+      this.component.notificationsReceived = true;
+    })
   }
 }

@@ -50,6 +50,10 @@ export class SalesHubService {
     this.connection.on('SalesUpdated', (value: any) => {
       this.emitters.SalesUpdated.emit(value);
     });
+    this.connection.on('NotificationReceived', (value: any) => {
+      console.log(value, "notifs")
+      this.emitters.NotificationReceived.emit(value);
+    });
   }
 
   startConnection() {
@@ -61,6 +65,10 @@ export class SalesHubService {
       .catch((error: Error) => {
         this.reconnect();
       });
+  }
+
+  getAllSales(){
+    this.connection.invoke('getAllSales').then((response: any) => { })
   }
 
   reconnect() {

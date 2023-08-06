@@ -53,7 +53,7 @@ export class CarLookupComponent {
   }
   NextStep() {
     var next = this.Form.requiresCarDocument ? 'vehicle-invoice' : 'describe-vehicle';
-    this.router.navigate(['customer', 'cars', 'sell', next, this.VinCode], {
+    this.router.navigate(['customer', 'sell', next, this.VinCode], {
       queryParams: { animate: true }
     });
   }

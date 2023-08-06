@@ -41,7 +41,7 @@ export class CarSaleCheckoutService {
 
   goToFinish() {
     this.router.navigate(
-      ['customer', 'cars', 'sell', 'finish', this.component.Form.car.vin],
+      ['customer',  'sell', 'finish', this.component.Form.car.vin],
       {
         queryParams: { animate: true },
       },
@@ -49,14 +49,14 @@ export class CarSaleCheckoutService {
   }
 
   goToLookUp() {
-    this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
+    this.router.navigate(['customer',  'sell', 'lookup'], {
       queryParams: { animate: true },
     });
   }
 
   goToSaleType() {
     this.router.navigate(
-      ['customer', 'cars', 'sell', 'sale-type', this.component.Form.car.vin],
+      ['customer',  'sell', 'sale-type', this.component.Form.car.vin],
       {
         queryParams: { animate: true },
       },

@@ -1,7 +1,4 @@
 <div class="cars-list-wrapper">
-  <div class="header">
-    <app-cars-list-header></app-cars-list-header>
-  </div>
   <div class="cars-list-content">
     <div class="search">
       <div class="block">
@@ -76,7 +73,7 @@
                 <div class="lot-number">
                   <p>#{{ item.car.lotNumber }}</p>
                 </div>
-                <button>Detail</button>
+                <button (click)="getSalesDetail(item)">Detail</button>
               </div>
             </div>
           </div>

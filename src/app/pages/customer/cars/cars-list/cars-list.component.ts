@@ -12,7 +12,10 @@ import { CarsListService } from './cars-list.service';
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.scss'],
 })
-export class CarsListComponent implements OnDestroy {
+export class CarsListComponent implements AfterViewInit{
+  ngAfterViewInit(): void {
+    this.service.getAllSales();
+  }
   Sales: any[] = [];
   SalesLocalCopy: any[] = [];
   SearchValue: string;
@@ -36,16 +39,19 @@ export class CarsListComponent implements OnDestroy {
   }
   constructor(private service: CarsListService) {
     this.service.component = this;
-    this.service.buildHubConnection();
+    this.service.openHubEmitters()
+
   }
-  ngOnDestroy(): void {
-    this.service.disconnectHub();
-  }
+
 
   searchByVinCode() {
     this.Sales = this.SalesLocalCopy.filter((x) =>
       x.vin.toLowerCase().includes(this.SearchValue.toLowerCase()),
     );
     console.log(this.Sales);
+  }
+
+  getSalesDetail(item: any) {
+    this.service.getSalesDetail(item)
   }
 }

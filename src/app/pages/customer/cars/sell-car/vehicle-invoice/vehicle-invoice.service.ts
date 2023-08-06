@@ -26,7 +26,7 @@ export class VehicleInvoiceService {
     }
   }
   goToLookUp() {
-    this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
+    this.router.navigate(['customer',  'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
@@ -46,7 +46,7 @@ export class VehicleInvoiceService {
   }
   goToDescribeVehicle() {
     this.storage.saveObject(this.component.Form.car.vin, this.component.Form);
-    this.router.navigate(['customer', 'cars', 'sell', 'describe', this.component.Form.car.vin], {
+    this.router.navigate(['customer',  'sell', 'describe', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }

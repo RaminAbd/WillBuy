@@ -1,5 +1,5 @@
 <div class="pending-cars-wrapper">
-  <p-table [value]="PendinCars" selectionMode="single" [paginator]="true" [rows]="10" [(selection)]="selectedCar"
+  <p-table [value]="PendingCars" selectionMode="single" [paginator]="true" [rows]="10" [(selection)]="selectedCar"
     dataKey="code" (onRowSelect)="onRowSelect($event)">
     <ng-template pTemplate="header">
       <tr>
@@ -10,7 +10,7 @@
     <ng-template pTemplate="body" let-car>
       <tr [pSelectableRow]="car">
         <td>{{car.code}}</td>
-        <td>{{car.processType.name}}</td>
+        <td>{{car?.processType?.name}}</td>
       </tr>
     </ng-template>
   </p-table>

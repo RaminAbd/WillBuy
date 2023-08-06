@@ -1,0 +1,283 @@
+.work-order-info {
+  padding: 45px 74px;
+  display: flex;
+  gap: 35px;
+
+  .images {
+    width: 387px;
+
+    .main-image {
+      img {
+        width: 100%;
+        height: 277px;
+        border-radius: 12px;
+      }
+    }
+
+    .previews {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      img {
+        width: 121px;
+        border-radius: 12px;
+        height: 83px;
+      }
+
+      .more-block {
+        position: relative;
+
+        .back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          /* background: rgba(0, 0, 0, 1); */
+          background: #00000091;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          width: 121px;
+          border-radius: 12px;
+          height: 83px;
+          cursor: pointer;
+
+          p {
+            margin: 0;
+            color: #FFF;
+            font-family: Inter;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 19px;
+            letter-spacing: 0.34px;
+          }
+
+        }
+      }
+    }
+  }
+
+  .car-info {
+    width: calc(100% - 422px);
+
+    h3 {
+      color: #333;
+      font-family: Inter;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 19px;
+      letter-spacing: 0.34px;
+      margin: 8px 0;
+    }
+
+    .small-info {
+      color: rgba(51, 51, 51, 0.50);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .documents {
+      display: flex;
+      color: #0077B6;
+      text-align: right;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      gap: 40px;
+      margin-top: 20px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        cursor: pointer;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .sale-type {
+      border-radius: 6px;
+      background: #F6F5FA;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 59px;
+      margin-top: 37px;
+      padding: 0 32px;
+
+      p {
+        margin: 0;
+        color: rgba(51, 51, 51, 0.50);
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px;
+      }
+
+      h4 {
+        margin: 0;
+        color: #333;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 19px;
+      }
+    }
+
+    .owner {
+      margin-top: 48px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        padding: 11px 0;
+        justify-content: space-between;
+
+        &:first-child {
+          border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+        }
+
+        p {
+          margin: 0;
+        }
+
+        p:first-child {
+          color: rgba(6, 54, 79, 0.60);
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+
+        .link-to-cus {
+          color: #1788FA;
+          text-align: right;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          cursor: pointer;
+        }
+
+        .owner-type {
+          color: #000;
+          text-align: right;
+          font-family: Inter;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+        }
+
+
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      margin-top: 45px;
+
+      button {
+        width: 211px;
+        height: 53px;
+        border-radius: 6px;
+
+        &.reject {
+          background: #EEE;
+          color: rgba(51, 51, 51, 0.50);
+        }
+
+        &.accept {
+          background: #0077B6;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+.car-more-info{
+  margin-top: 48px;
+  .item{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+    p{
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 24px;
+      &.name{
+        color: rgba(6, 54, 79, 0.60);
+      }
+      &.value{
+        color: #000;
+      }
+    }
+  }
+}
+.actions{
+  margin-top: 40px;
+  button{
+    width: 163px;
+    height: 60px;
+    border-radius: 6px;
+    background: #0077B6;
+  }
+  .buy{
+    display:flex;
+    justify-content:flex-end;
+  }
+  .bid{
+    display: flex;
+    gap: 11px;
+    justify-content: flex-end;
+    input{
+      width: calc(100% - 174px);
+      height: 60px;
+      border-radius: 6px;
+      border: 1px solid #D9D9D9;
+      background: #FFF;
+      color: rgba(51, 51, 51, 0.30);
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 19px;
+      outline:none;
+    }
+  }
+}

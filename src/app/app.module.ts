@@ -55,6 +55,10 @@ import { GalleriaModule } from 'primeng/galleria';
 import { ImageModule } from 'primeng/image';
 import { RejectDialogComponent } from './pages/admin/pending-cars/shared/components/reject-dialog/reject-dialog.component';
 import { CarsListHeaderComponent } from './pages/customer/cars/cars-list/shared/components/cars-list-header/cars-list-header.component';
+import { CarSalesDetailComponent } from './pages/customer/cars/cars-list/shared/pages/car-sales-detail/car-sales-detail.component';
+import { NotificationsHistoryComponent } from './pages/customer/notifications-history/notifications-history.component';
+import { SoldCarsComponent } from './pages/customer/sold-cars/sold-cars.component';
+import { PurchasedCarsComponent } from './pages/customer/purchased-cars/purchased-cars.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -95,7 +99,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     PendingCarsComponent,
     WorkOrderDetailComponent,
     RejectDialogComponent,
-    CarsListHeaderComponent
+    CarsListHeaderComponent,
+    CarSalesDetailComponent,
+    NotificationsHistoryComponent,
+    SoldCarsComponent,
+    PurchasedCarsComponent
   ],
   imports: [
     BrowserModule,

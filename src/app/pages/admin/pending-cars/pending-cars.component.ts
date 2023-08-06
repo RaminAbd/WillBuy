@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./pending-cars.component.scss'],
 })
 export class PendingCarsComponent implements OnDestroy {
-  PendinCars: PendingCarsResponse[] = [];
+  PendingCars: PendingCarsResponse[] = [];
   selectedCar: PendingCarsResponse = new PendingCarsResponse();
   constructor(
     private service: PendingCarsService,

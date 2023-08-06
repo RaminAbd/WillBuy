@@ -46,6 +46,9 @@
     margin-top: 46px;
     .list {
       width: calc(100% - 359px);
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
       .item {
         display: flex;
         gap: 26px;

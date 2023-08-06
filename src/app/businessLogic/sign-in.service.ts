@@ -54,9 +54,12 @@ export class SignInService {
     this.SignInRequest.password = SignInRequest.password.value;
 
     this.service.SignIn(this.SignInRequest).subscribe(resp => {
-      this.component.loading = false;
-      this.storage.saveObject('SignInResult', resp)
-      this.routeByRole(resp);
+      if(resp){
+        this.component.loading = false;
+        console.log(resp)
+        this.storage.saveObject('SignInResult', resp)
+        this.routeByRole(resp);
+      }
     })
   }
   routeByRole(data: any) {

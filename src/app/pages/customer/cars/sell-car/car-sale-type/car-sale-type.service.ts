@@ -41,18 +41,18 @@ export class CarSaleTypeService {
     this.getSaleTypes();
   }
   goToDescribeVehicle() {
-    this.router.navigate(['customer', 'cars', 'sell', 'describe', this.component.Form.car.vin], {
+    this.router.navigate(['customer',  'sell', 'describe', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }
   goToLookUp() {
-    this.router.navigate(['customer', 'cars', 'sell', 'lookup'], {
+    this.router.navigate(['customer',  'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
   goToCheckOut(){
     this.storage.saveObject(this.component.Form.car.vin, this.component.Form);
-    this.router.navigate(['customer', 'cars', 'sell', 'checkout', this.component.Form.car.vin], {
+    this.router.navigate(['customer',  'sell', 'checkout', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }

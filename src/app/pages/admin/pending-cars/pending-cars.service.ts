@@ -16,7 +16,7 @@ export class PendingCarsService {
   }
   openHubEmitters() {
     this.hubService.emitters.WorkOrdersReceived.subscribe((resp: any) => {
-      this.component.PendinCars = resp;
+      this.component.PendingCars = resp;
       console.log(resp, 'Work Orders');
     });
   }
