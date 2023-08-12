@@ -6,7 +6,7 @@
     <div class="item" *ngFor="let notif of Notifications" (click)="getDetail(notif)">
       <div class="info">
         <p class="title">{{notif.title}}</p>
-        <p class="title">{{notif.body}}</p>
+        <p class="body">{{notif.body}}</p>
       </div>
       <div class="isRead" *ngIf="!notif.isRead"></div>
     </div>

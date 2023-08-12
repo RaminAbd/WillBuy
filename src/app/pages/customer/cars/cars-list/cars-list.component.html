@@ -56,17 +56,12 @@
                     {{
                       item.saleOption === 1
                         ? item.directSaleOption.price
-                        : item.tradingSaleOption.minimalPrice
+                        : item.tradingSaleOption.desiredPrice
                     }}
                   </h4>
-                  <p>{{ item.saleOption === 1 ? "Price" : "Minimal price" }}</p>
+                  <p>{{ item.saleOption === 1 ? "Price" : "Desired price" }}</p>
                 </div>
-                <div class="price-item" *ngIf="item.saleOption !== 1">
-                  <h4 class="head">
-                    $ {{ item.tradingSaleOption.desiredPrice }}
-                  </h4>
-                  <p>Desired price</p>
-                </div>
+
               </div>
 
               <div class="btn">

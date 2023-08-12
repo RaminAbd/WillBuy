@@ -121,9 +121,7 @@
             [(ngModel)]="BidValue"
             (ngModelChange)="changeButtonState()"
             min="{{ carDetail.tradingSaleOption.minimalPrice }}"
-            placeholder="Enter your bid (Minimum ${{
-              carDetail.tradingSaleOption.minimalPrice
-            }})"
+            placeholder="Enter your bid"
           />
           <button
             [disabled]="bidActionDisabled || alreadyHasOffered || isMySale"
@@ -150,7 +148,6 @@
     <div class="list" *ngIf="carDetail.sellerId === selectedPermission.id">
       <div class="item" *ngFor="let offer of carDetail.offers">
         <div class="block">
-          <p>{{ offer.customer.firstName + " " + offer.customer.lastName }}:</p>
           <p>${{ offer.value }}</p>
         </div>
       </div>
@@ -159,7 +156,6 @@
     <div class="list" *ngIf="carDetail.sellerId !== selectedPermission.id">
       <div class="item" *ngFor="let offer of carDetail.offers">
         <div class="block" *ngIf="offer.customerId === selectedPermission.id">
-          <p>{{ offer.customer.firstName + " " + offer.customer.lastName }}:</p>
           <p>${{ offer.value }}</p>
         </div>
       </div>

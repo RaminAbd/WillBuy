@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {NotificationsResponse} from "./shared/models/notifications-response.model";
-import {NotificationsHistoryService} from "./notifications-history.service";
-import {Router} from "@angular/router";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { NotificationsResponse } from './shared/models/notifications-response.model';
+import { NotificationsHistoryService } from './notifications-history.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notifications-history',
@@ -9,17 +9,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./notifications-history.component.scss'],
 })
 export class NotificationsHistoryComponent {
-  Notifications:NotificationsResponse[]=[];
-  @Output() close:any = new EventEmitter()
+  Notifications: NotificationsResponse[] = [];
+  @Output() close: any = new EventEmitter();
 
   constructor(
-    private service:NotificationsHistoryService,
-    private router:Router
+    private service: NotificationsHistoryService,
+    private router: Router,
   ) {
     this.service.component = this;
     this.service.getAllNotifications();
   }
-  getDetail(notif:any){
-    this.router.navigate(['customer/cars/notification', notif.id])
+  getDetail(notif: any) {
+    console.log(notif);
+    // this.router.navigate(['customer/cars/notification', notif.id])
   }
 }
