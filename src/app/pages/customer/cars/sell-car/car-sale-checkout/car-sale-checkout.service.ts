@@ -13,7 +13,7 @@ export class CarSaleCheckoutService {
     private storage: LocalStorageService,
     private router: Router,
     private apiService: CarAddingApiService,
-  ) {}
+  ) { }
 
   getForm(component: CarSaleCheckoutComponent) {
     this.component = component;
@@ -28,20 +28,24 @@ export class CarSaleCheckoutService {
   }
   getCheckOut() {
     this.apiService.GetCheckOut(this.component.Form).subscribe((resp) => {
-      this.component.CheckOut = resp;
+      if (resp.succeeded) {
+        this.component.CheckOut = resp.data;
+      }
     });
   }
   AddCar() {
     console.log(this.component.Form, 'Add car form');
     this.apiService.AddCar(this.component.Form).subscribe((resp) => {
-      this.goToFinish();
-      this.storage.removeObject(this.component.Form.vin);
+      if (resp.succeeded) {
+        this.goToFinish();
+        this.storage.removeObject(this.component.Form.vin);
+      }
     });
   }
 
   goToFinish() {
     this.router.navigate(
-      ['customer',  'sell', 'finish', this.component.Form.car.vin],
+      ['customer', 'sell', 'finish', this.component.Form.car.vin],
       {
         queryParams: { animate: true },
       },
@@ -49,14 +53,14 @@ export class CarSaleCheckoutService {
   }
 
   goToLookUp() {
-    this.router.navigate(['customer',  'sell', 'lookup'], {
+    this.router.navigate(['customer', 'sell', 'lookup'], {
       queryParams: { animate: true },
     });
   }
 
   goToSaleType() {
     this.router.navigate(
-      ['customer',  'sell', 'sale-type', this.component.Form.car.vin],
+      ['customer', 'sell', 'sale-type', this.component.Form.car.vin],
       {
         queryParams: { animate: true },
       },

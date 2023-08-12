@@ -31,7 +31,9 @@ export class ChangePasswordService {
       request.code = component.UserCode;
       request.userName = component.route.snapshot.paramMap.get('personalId') as string;
       this.service.ForgotPassword(request).subscribe((resp: any) => {
-        component.router.navigate(['./sign-in'])
+        if(resp.succeeded){
+          component.router.navigate(['./sign-in'])
+        }
       })
     }
   }

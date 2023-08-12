@@ -12,7 +12,7 @@ export class DescribeVehicleService {
   constructor(
     private storage: LocalStorageService,
     private router: Router,
-    private blob:FilesApiService
+    private blob: FilesApiService
   ) { }
 
   getForm(component: DescribeVehicleComponent) {
@@ -22,7 +22,7 @@ export class DescribeVehicleService {
     if (form) {
       this.component.Form = form;
       this.component.Form.carFaxOption = 2;
-      if(this.component.Form.requiresCarDocument && !this.component.Form.carDocument){
+      if (this.component.Form.requiresCarDocument && !this.component.Form.carDocument) {
         this.goToVehicleInvoice();
       }
     }
@@ -30,13 +30,13 @@ export class DescribeVehicleService {
       this.goToLookUp();
     }
   }
-  goToVehicleInvoice(){
-    this.router.navigate(['customer',  'sell', 'vehicle-invoice', this.component.Form.car.vin], {
+  goToVehicleInvoice() {
+    this.router.navigate(['customer', 'sell', 'vehicle-invoice', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }
-  goToLookUp(){
-    this.router.navigate(['customer',  'sell', 'lookup'], {
+  goToLookUp() {
+    this.router.navigate(['customer', 'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
@@ -47,17 +47,19 @@ export class DescribeVehicleService {
       const fd = new FormData();
       fd.append('file', files[i]);
       this.blob.UploadFile(fd).subscribe((resp: any) => {
-        this.component.Form.carFax = resp;
-        this.component.Form.carFax.extension = resp.fileExtension.split('/')[1].toUpperCase();
-        this.component.disableNext = false;
-        this.component.file = null;
+        if (resp.succeeded) {
+          this.component.Form.carFax = resp.data;
+          this.component.Form.carFax.extension = resp.data.fileExtension.split('/')[1].toUpperCase();
+          this.component.disableNext = false;
+          this.component.file = null;
+        }
       });
     }
   }
 
   goToSaleType() {
     this.storage.saveObject(this.component.Form.car.vin, this.component.Form);
-    this.router.navigate(['customer',  'sell', 'sale-type', this.component.Form.car.vin], {
+    this.router.navigate(['customer', 'sell', 'sale-type', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }

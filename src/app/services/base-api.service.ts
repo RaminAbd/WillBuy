@@ -49,7 +49,7 @@ export class BaseApiService {
           return this.handler.handleError(response);
         }
         else{
-          return response.data;
+          return response;
         }
       })
     );

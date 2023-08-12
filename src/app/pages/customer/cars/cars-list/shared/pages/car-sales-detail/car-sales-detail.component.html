@@ -81,6 +81,10 @@
           <p class="value">{{ carDetail.car.fuel }}</p>
         </div>
         <div class="item">
+          <p class="name">VIN</p>
+          <p class="value">{{ carDetail.car.vin }}</p>
+        </div>
+        <div class="item">
           <p class="name">Drivetrain</p>
           <p class="value">{{ carDetail.car.drive }}</p>
         </div>
@@ -110,12 +114,53 @@
         </div>
       </div>
       <div class="actions">
-        <div class="bid" *ngIf="carDetail.saleOption===2">
-          <input type="number" [disabled]="alreadyHasOffered" [(ngModel)]="BidValue" (ngModelChange)="changeButtonState()" min="{{carDetail.tradingSaleOption.minimalPrice}}" placeholder="Enter your bid (Minimum ${{carDetail.tradingSaleOption.minimalPrice}})" >
-          <button [disabled]="bidActionDisabled || alreadyHasOffered" (click)="tradingBid()">Place bid</button>
+        <div class="bid" *ngIf="carDetail.saleOption === 2">
+          <input
+            type="number"
+            [disabled]="alreadyHasOffered"
+            [(ngModel)]="BidValue"
+            (ngModelChange)="changeButtonState()"
+            min="{{ carDetail.tradingSaleOption.minimalPrice }}"
+            placeholder="Enter your bid (Minimum ${{
+              carDetail.tradingSaleOption.minimalPrice
+            }})"
+          />
+          <button
+            [disabled]="bidActionDisabled || alreadyHasOffered || isMySale"
+            (click)="tradingBid()"
+          >
+            Place bid
+          </button>
         </div>
-        <div class="buy" *ngIf="carDetail.saleOption===1">
-          <button [disabled]="alreadyHasOffered" (click)="directBuy()">Buy</button>
+        <div class="buy" *ngIf="carDetail.saleOption === 1">
+          <button
+            [disabled]="alreadyHasOffered || isMySale"
+            (click)="directBuy()"
+          >
+            Buy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offers-history">
+    <div class="heading">
+      <h4>Offers history</h4>
+    </div>
+    <div class="list" *ngIf="carDetail.sellerId === selectedPermission.id">
+      <div class="item" *ngFor="let offer of carDetail.offers">
+        <div class="block">
+          <p>{{ offer.customer.firstName + " " + offer.customer.lastName }}:</p>
+          <p>${{ offer.value }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="list" *ngIf="carDetail.sellerId !== selectedPermission.id">
+      <div class="item" *ngFor="let offer of carDetail.offers">
+        <div class="block" *ngIf="offer.customerId === selectedPermission.id">
+          <p>{{ offer.customer.firstName + " " + offer.customer.lastName }}:</p>
+          <p>${{ offer.value }}</p>
         </div>
       </div>
     </div>

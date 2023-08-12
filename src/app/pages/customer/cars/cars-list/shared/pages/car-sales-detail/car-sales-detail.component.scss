@@ -1,3 +1,24 @@
+.sales-detail {
+  height: calc(100vh - 162px);
+  overflow: auto;
+  padding: 0 0 55px 0;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+  }
+}
+
 .work-order-info {
   padding: 45px 74px;
   display: flex;
@@ -46,7 +67,7 @@
 
           p {
             margin: 0;
-            color: #FFF;
+            color: #fff;
             font-family: Inter;
             font-size: 17px;
             font-style: normal;
@@ -54,7 +75,6 @@
             line-height: 19px;
             letter-spacing: 0.34px;
           }
-
         }
       }
     }
@@ -75,7 +95,7 @@
     }
 
     .small-info {
-      color: rgba(51, 51, 51, 0.50);
+      color: rgba(51, 51, 51, 0.5);
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -92,7 +112,7 @@
 
     .documents {
       display: flex;
-      color: #0077B6;
+      color: #0077b6;
       text-align: right;
       font-family: Inter;
       font-size: 16px;
@@ -116,7 +136,7 @@
 
     .sale-type {
       border-radius: 6px;
-      background: #F6F5FA;
+      background: #f6f5fa;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -126,7 +146,7 @@
 
       p {
         margin: 0;
-        color: rgba(51, 51, 51, 0.50);
+        color: rgba(51, 51, 51, 0.5);
         font-family: Inter;
         font-size: 14px;
         font-style: normal;
@@ -163,7 +183,7 @@
         }
 
         p:first-child {
-          color: rgba(6, 54, 79, 0.60);
+          color: rgba(6, 54, 79, 0.6);
           font-family: Inter;
           font-size: 14px;
           font-style: normal;
@@ -172,7 +192,7 @@
         }
 
         .link-to-cus {
-          color: #1788FA;
+          color: #1788fa;
           text-align: right;
           font-family: Inter;
           font-size: 14px;
@@ -191,8 +211,6 @@
           font-weight: 600;
           line-height: 24px;
         }
-
-
       }
     }
 
@@ -215,69 +233,109 @@
         border-radius: 6px;
 
         &.reject {
-          background: #EEE;
-          color: rgba(51, 51, 51, 0.50);
+          background: #eee;
+          color: rgba(51, 51, 51, 0.5);
         }
 
         &.accept {
-          background: #0077B6;
-          color: #FFF;
+          background: #0077b6;
+          color: #fff;
         }
       }
     }
   }
 }
-.car-more-info{
+.car-more-info {
   margin-top: 48px;
-  .item{
+  .item {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
     border-bottom: 1px solid rgba(51, 51, 51, 0.15);
-    p{
+    p {
       font-family: Inter;
       font-size: 14px;
       font-weight: 600;
       line-height: 24px;
-      &.name{
-        color: rgba(6, 54, 79, 0.60);
+      &.name {
+        color: rgba(6, 54, 79, 0.6);
       }
-      &.value{
+      &.value {
         color: #000;
       }
     }
   }
 }
-.actions{
+.actions {
   margin-top: 40px;
-  button{
+  button {
     width: 163px;
     height: 60px;
     border-radius: 6px;
-    background: #0077B6;
+    background: #0077b6;
   }
-  .buy{
-    display:flex;
-    justify-content:flex-end;
+  .buy {
+    display: flex;
+    justify-content: flex-end;
   }
-  .bid{
+  .bid {
     display: flex;
     gap: 11px;
     justify-content: flex-end;
-    input{
+    input {
       width: calc(100% - 174px);
       height: 60px;
       border-radius: 6px;
-      border: 1px solid #D9D9D9;
-      background: #FFF;
-      color: rgba(51, 51, 51, 0.30);
+      border: 1px solid #d9d9d9;
+      background: #fff;
+      color: rgba(51, 51, 51, 0.3);
       text-align: center;
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: 19px;
-      outline:none;
+      outline: none;
+    }
+  }
+}
+
+.offers-history {
+  height: 177px;
+  width: calc(100% - 148px);
+  border-radius: 6px;
+  background: #f6f5fa;
+  margin: 0 auto;
+  .heading {
+    padding: 24px 40px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+    h3 {
+      color: rgba(51, 51, 51, 0.7);
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 19px;
+    }
+  }
+  .list {
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .item {
+      .block {
+        display: flex;
+        gap: 10px;
+      }
+    }
+    p {
+      color: #333;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 19px;
     }
   }
 }

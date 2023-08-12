@@ -18,6 +18,8 @@ export class CarDetailDTO{
 	rejectReason?: any;
 	saleType?: any;
 	activeSale?: any;
+  offers:any[]=[]
 	id: string;
+  sellerId:any;
 }
 

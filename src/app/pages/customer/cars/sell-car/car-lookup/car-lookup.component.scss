@@ -1,4 +1,9 @@
 .car-lookup-wrapper {
+  .right{
+    i{
+      cursor:pointer;
+    }
+  }
   .header {
     h3 {
       color: #333;
@@ -8,6 +13,7 @@
       font-style: normal;
       font-weight: 700;
       line-height: 51px;
+      margin-bottom: 25px;
     }
   }
 

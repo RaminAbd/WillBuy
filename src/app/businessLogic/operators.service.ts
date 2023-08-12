@@ -17,9 +17,11 @@ export class OperatorsService {
   getOperators(component: OperatorsComponent) {
     this.component = component;
     this.opService.GetAllWithPaging(this.opService.serviceUrl, this.component.Request).subscribe(resp => {
-      this.component.Operators = resp.items;
-      this.component.loading =  false
-      this.component.Response = resp
+      this.component.loading = false
+      if (resp.succeeded) {
+        this.component.Operators = resp.data.items;
+        this.component.Response = resp.data
+      }
     })
   }
 }

@@ -14,7 +14,9 @@ export class CarSalesDetailComponent {
   displayBasic: boolean = false;
   BidValue:number;
   bidActionDisabled:boolean = true;
-  alreadyHasOffered:boolean = false
+  alreadyHasOffered:boolean = false;
+  isMySale:boolean = false;
+  selectedPermission:any;
   constructor(
     private service:CarSalesDetailService,
     public route:ActivatedRoute,

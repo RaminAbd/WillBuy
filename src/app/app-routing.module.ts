@@ -29,6 +29,9 @@ import {
 } from "./pages/customer/cars/cars-list/shared/pages/car-sales-detail/car-sales-detail.component";
 import {SoldCarsComponent} from "./pages/customer/sold-cars/sold-cars.component";
 import {PurchasedCarsComponent} from "./pages/customer/purchased-cars/purchased-cars.component";
+import {
+  NotifDetailComponent
+} from "./pages/customer/notifications-history/shared/pages/notif-detail/notif-detail.component";
 
 const routes: Routes = [
   { path: 'sign-in', component: LoginComponent },
@@ -43,7 +46,7 @@ const routes: Routes = [
         path: 'cars', component: CarsComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] }, children: [
           { path: 'list', component: CarsListComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
           { path: 'detail/:id', component: CarSalesDetailComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
-
+          { path: 'notification/:id', component: NotifDetailComponent, canActivate: [RoleGuard], data: { permissionTypes: [1] } },
           { path: '', redirectTo: 'list', pathMatch: 'full' },
         ]
       },

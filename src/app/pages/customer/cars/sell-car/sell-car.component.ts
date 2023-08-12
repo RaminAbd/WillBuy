@@ -1,6 +1,12 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-sell-car',
@@ -8,26 +14,54 @@ import { Router } from '@angular/router';
   styleUrls: ['./sell-car.component.scss'],
   animations: [
     trigger('pageAnimation', [
-      state('void', style({ position: 'fixed', width: 'calc(100% - 421px)', 'max-width': '100%' })),
-      state('*', style({ position: 'fixed', width: 'calc(100% - 421px)', 'max-width': '100%' })),
+      state(
+        'void',
+        style({
+          position: 'fixed',
+          width: 'calc(100% - 421px)',
+          'max-width': '100%',
+        }),
+      ),
+      state(
+        '*',
+        style({
+          position: 'fixed',
+          width: 'calc(100% - 421px)',
+          'max-width': '100%',
+        }),
+      ),
       transition(':enter', [
         style({ transform: 'translateX(100%)' }),
-        animate('300ms ease-out', style({ transform: 'translateX(0)' }))
+        animate('300ms ease-out', style({ transform: 'translateX(0)' })),
       ]),
       transition(':leave', [
         style({ transform: 'translateX(0)' }),
-        animate('300ms ease-out', style({ transform: 'translateX(-100%)' }))
-      ])
-    ])
-  ]
+        animate('300ms ease-out', style({ transform: 'translateX(-100%)' })),
+      ]),
+    ]),
+  ],
 })
 export class SellCarComponent {
-  constructor(private router: Router) { };
+  constructor(private router: Router,private route: ActivatedRoute,) {
+    router.events.subscribe(event => {
+      console.log(event)
+      if (event instanceof NavigationEnd) {
 
+        this.getPageType(event.urlAfterRedirects)
+      }
+    })
+  }
+
+  getPageType(url?: string) {
+    var currentUrl = url ? url : this.router.url;
+    const parts = currentUrl.split('/');
+    var PageType = parts[parts.length - 1]
+    console.log(PageType)
+  }
   getAnimationState(): string {
     return 'page';
   }
   Cancel() {
-    this.router.navigate(['customer', 'cars'])
+    this.router.navigate(['customer', 'cars']);
   }
 }

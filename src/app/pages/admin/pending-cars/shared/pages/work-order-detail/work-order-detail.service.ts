@@ -28,7 +28,9 @@ export class WorkOrderDetailService {
   };
   getAllRejectReasons() {
     this.reasonsService.getAllByLang(this.translate.currentLang).subscribe(resp => {
-      this.RejectReasons = resp;
+     if(resp.succeeded){
+      this.RejectReasons = resp.data;
+     }
     })
   }
   getDetail(component: WorkOrderDetailComponent) {
@@ -38,7 +40,9 @@ export class WorkOrderDetailService {
       lang: this.translate.currentLang
     }
     this.service.GetByIdByLang(this.service.serviceUrl, req).subscribe(resp => {
-      this.component.carDetail = resp;
+      if(resp.succeeded){
+        this.component.carDetail = resp.data;
+      }
     })
   }
   Download(myfile: any) {
@@ -56,7 +60,9 @@ export class WorkOrderDetailService {
 
   complete() {
     this.service.Complete(this.component.carDetail).subscribe(resp => {
-      this.router.navigate(['admin/cars']);
+      if(resp.succeeded){
+        this.router.navigate(['admin/cars']);
+      }
     })
   }
 

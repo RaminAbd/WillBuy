@@ -31,7 +31,9 @@ export class UsersTableService {
 
   getUserById(id: string) {
     this.customerService.GetById(this.customerService.serviceUrl, id).subscribe(resp => {
-      this.openDialog(resp)
+      if(resp.succeeded) {
+        this.openDialog(resp.data)
+      }
     })
   }
 
@@ -84,7 +86,9 @@ export class UsersTableService {
     req.communicationType = 1;
     req.code = this.component.customerCode;
     this.customerService.Create(this.customerService.serviceUrl, req).subscribe(resp => {
-      this.component.getByPaging.emit(new PagingRequest());
+      if(resp.succeeded) {
+        this.component.getByPaging.emit(new PagingRequest());
+      }
     })
   }
 

@@ -26,7 +26,7 @@ export class VehicleInvoiceService {
     }
   }
   goToLookUp() {
-    this.router.navigate(['customer',  'sell', 'lookup'], {
+    this.router.navigate(['customer', 'sell', 'lookup'], {
       queryParams: { animate: true }
     });
   }
@@ -37,16 +37,18 @@ export class VehicleInvoiceService {
       const fd = new FormData();
       fd.append('file', files[i]);
       this.blob.UploadFile(fd).subscribe((resp: any) => {
-        this.component.Form.carDocument = resp;
-        this.component.disableNext = false;
-        this.component.Form.carDocument.extension = resp.fileExtension.split('/')[1].toUpperCase();
-        this.component.file = null;
+        if (resp.succeeded) {
+          this.component.Form.carDocument = resp.data;
+          this.component.disableNext = false;
+          this.component.Form.carDocument.extension = resp.data.fileExtension.split('/')[1].toUpperCase();
+          this.component.file = null;
+        }
       });
     }
   }
   goToDescribeVehicle() {
     this.storage.saveObject(this.component.Form.car.vin, this.component.Form);
-    this.router.navigate(['customer',  'sell', 'describe', this.component.Form.car.vin], {
+    this.router.navigate(['customer', 'sell', 'describe', this.component.Form.car.vin], {
       queryParams: { animate: true }
     });
   }

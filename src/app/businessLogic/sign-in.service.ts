@@ -54,11 +54,10 @@ export class SignInService {
     this.SignInRequest.password = SignInRequest.password.value;
 
     this.service.SignIn(this.SignInRequest).subscribe(resp => {
-      if(resp){
-        this.component.loading = false;
-        console.log(resp)
-        this.storage.saveObject('SignInResult', resp)
-        this.routeByRole(resp);
+      this.component.loading = false;
+      if(resp.succeeded){
+        this.storage.saveObject('SignInResult', resp.data)
+        this.routeByRole(resp.data);
       }
     })
   }

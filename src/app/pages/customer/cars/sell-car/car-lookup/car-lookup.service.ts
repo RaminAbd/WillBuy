@@ -20,10 +20,12 @@ export class CarLookupService {
       VIN: this.component.VinCode
     };
     this.apiService.get(this.apiService.ServiceUrl + 'GetForm', null, req).subscribe(resp => {
-      this.component.Form = resp;
-      this.component.Form.vin = req.VIN;
-      this.component.Form.userId = req.UserId;
-      this.storage.saveObject(req.VIN, resp);
+      if (resp.succeeded) {
+        this.component.Form = resp.data;
+        this.component.Form.vin = req.VIN;
+        this.component.Form.userId = req.UserId;
+        this.storage.saveObject(req.VIN, resp.data);
+      }
     })
   }
 }

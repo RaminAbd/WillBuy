@@ -20,32 +20,38 @@ export class CustomersService {
   getCustomers() {
     this.cusService.GetAllWithPaging(this.cusService.serviceUrl, this.component.Request).subscribe(resp => {
       this.component.loading = false
-      this.component.Response = resp;
-      this.component.Response.items = resp.items.map((item: any) => ({
-        ...item,
-        serviceAgreement:this.getServiceAgreementNameById(item.serviceAgreementId),
-        serviceAgreementLevel:this.getServiceAgreementLevelNameById(item.serviceAgreementLevelId)
-      }))
+      if (resp.succeeded) {
+        this.component.Response = resp.data;
+        this.component.Response.items = resp.data.items.map((item: any) => ({
+          ...item,
+          serviceAgreement: this.getServiceAgreementNameById(item.serviceAgreementId),
+          serviceAgreementLevel: this.getServiceAgreementLevelNameById(item.serviceAgreementLevelId)
+        }))
+      }
     })
   }
   getServiceAgreements(component: CustomersComponent) {
     this.component = component;
     this.serviceAgreement.get(this.serviceAgreement.serviceUrl + 'getAll/', this.translate.currentLang, null).subscribe(resp => {
-      this.component.ServiceAgreements = resp;
-      this.getServiceAgreementLevels();
+      if (resp.succeeded) {
+        this.component.ServiceAgreements = resp.data;
+        this.getServiceAgreementLevels();
+      }
     })
   }
   getServiceAgreementLevels() {
     this.serviceAgreementLevels.get(this.serviceAgreementLevels.serviceUrl + 'getAll/', this.translate.currentLang, null).subscribe(resp => {
-      this.component.ServiceAgreementLevels = resp;
+      if (resp.succeeded) {
+      this.component.ServiceAgreementLevels = resp.data;
       this.component.getCustomers(new PagingRequest())
+      }
     })
   }
-  getServiceAgreementNameById(id:string){
+  getServiceAgreementNameById(id: string) {
     var find = this.component.ServiceAgreements.find(s => s.id === id);
     return find.name;
   }
-  getServiceAgreementLevelNameById(id:string){
+  getServiceAgreementLevelNameById(id: string) {
     var find = this.component.ServiceAgreementLevels.find(s => s.id === id);
     return find.name;
   }

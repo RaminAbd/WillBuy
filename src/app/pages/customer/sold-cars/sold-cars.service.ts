@@ -19,7 +19,9 @@ export class SoldCarsService {
       id: res.id,
     };
     this.service.GetAllBySellerId(req).subscribe((resp) => {
-      this.component.SoldCars = resp;
+      if(resp.succeeded){
+        this.component.SoldCars = resp.data;
+      }
     });
   }
 }
