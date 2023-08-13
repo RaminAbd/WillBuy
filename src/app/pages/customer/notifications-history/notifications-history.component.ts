@@ -20,7 +20,10 @@ export class NotificationsHistoryComponent {
     this.service.getAllNotifications();
   }
   getDetail(notif: any) {
-    console.log(notif);
-    // this.router.navigate(['customer/cars/notification', notif.id])
+    if (notif.type === 2) {
+      this.close.emit(true);
+      this.router.navigate(['customer/cars/notification', notif.externalId]);
+    } else {
+    }
   }
 }

@@ -3,7 +3,7 @@
     <h3>Notifications</h3>
   </div>
   <div class="list">
-    <div class="item" *ngFor="let notif of Notifications" (click)="getDetail(notif)">
+    <div class="item {{notif.type!==2 ? 'disabled' : 'enabled'}} {{!notif.isRead? 'notRead' : ''}}" *ngFor="let notif of Notifications" (click)="getDetail(notif)">
       <div class="info">
         <p class="title">{{notif.title}}</p>
         <p class="body">{{notif.body}}</p>

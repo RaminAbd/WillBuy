@@ -1,42 +1,35 @@
 <div class="side-bar">
   <div class="logo">
-    <img src="assets/images/logo.png" alt="">
+    <img src="assets/images/logo.png" alt="" />
   </div>
   <div class="nav-links">
     <a [routerLink]="'cars'" [routerLinkActive]="['active']">
-      <span><img src="assets/images/nav-car.svg" alt=""></span>
-      <p>{{'Cars' | translate}}</p>
+      <span><img src="assets/images/nav-car.svg" alt="" /></span>
+      <p>{{ "Cars" | translate }}</p>
     </a>
-<!--    <a [routerLink]="'#'" [routerLinkActive]="['active']">-->
-<!--      <span><img src="assets/images/saved-cars.svg" alt=""></span>-->
-<!--      <p>Saved Cars</p>-->
-<!--    </a>-->
     <a [routerLink]="'purchased-cars'" [routerLinkActive]="['active']">
-      <span><img src="assets/images/purchased-cars.svg" alt=""></span>
+      <span><img src="assets/images/purchased-cars.svg" alt="" /></span>
       <p>Purchased Cars</p>
     </a>
     <a [routerLink]="'sold-cars'" [routerLinkActive]="['active']">
-      <span><img src="assets/images/sold-cars.svg" alt=""></span>
+      <span><img src="assets/images/sold-cars.svg" alt="" /></span>
       <p>Sold Cars</p>
     </a>
-<!--    <a [routerLink]="'#'" [routerLinkActive]="['active']">-->
-<!--      <span><img src="assets/images/payment-method.svg" alt=""></span>-->
-<!--      <p>Payment Method</p>-->
-<!--    </a>-->
-<!--    <a [routerLink]="'#'" [routerLinkActive]="['active']">-->
-<!--      <span><img src="assets/images/help-center.svg" alt=""></span>-->
-<!--      <p>Help Center</p>-->
-<!--    </a>-->
+    <a [routerLink]="'payment'" [routerLinkActive]="['active']">
+      <span><img src="assets/images/payment-method.svg" alt="" /></span>
+      <p>Payment Method</p>
+    </a>
+    <a href="tel:+995557744107">
+      <span><img src="assets/images/help-center.svg" alt="" /></span>
+      <p>Help Center</p>
+    </a>
   </div>
-<!--  <div class="nav-notifications">-->
-<!--    <app-customer-nav-notifications></app-customer-nav-notifications>-->
-<!--  </div>-->
   <div class="nav-sell-car">
     <div class="header">
       <p>The easiest way to sell your old car</p>
     </div>
     <button (click)="sellCar()">
-      <img src="assets/images/cart.svg" alt="">
+      <img src="assets/images/cart.svg" alt="" />
       Sell Your Car
     </button>
   </div>

@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LocalStorageService } from '../../../../../../../services/local-storage.service';
 import { CarsListHeaderService } from './cars-list-header.service';
-import {SalesHubService} from "../../services/sales-hub.service";
+import { SalesHubService } from '../../services/sales-hub.service';
 
 @Component({
   selector: 'app-cars-list-header',
@@ -11,13 +11,13 @@ import {SalesHubService} from "../../services/sales-hub.service";
 export class CarsListHeaderComponent {
   CustomerName: string = '';
   UserBalance: number = 0;
-  @Input() PageHeader:string;
-  notificationsReceived:boolean = false;
-  showNotificationsHistory:boolean = false;
+  @Input() PageHeader: string;
+  notificationsReceived: boolean = false;
+  showNotificationsHistory: boolean = false;
   constructor(
     private storage: LocalStorageService,
     private service: CarsListHeaderService,
-    private hubService:SalesHubService
+    private hubService: SalesHubService,
   ) {
     this.service.component = this;
     this.getPersonalInfo();
@@ -32,5 +32,10 @@ export class CarsListHeaderComponent {
 
   getMyBalance() {
     this.service.getMyBalance();
+  }
+
+  getAction() {
+    console.log('sdvsdv');
+    this.showNotificationsHistory = false;
   }
 }

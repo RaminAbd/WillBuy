@@ -1,7 +1,9 @@
-.sales-detail {
-  height: calc(100vh - 162px);
+.work-order-detail {
   overflow: auto;
-  padding: 0 0 55px 0;
+  padding: 0px 58px 58px;
+  height: calc(100vh - 113px);
+  scrollbar-color: #4CAF50 #E0E0E0; /* thumb color, track color */
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -9,21 +11,23 @@
   /* Track */
   &::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 3px;
+    border-radius:3px
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: #888;
-    border-radius: 3px;
+    border-radius:3px
   }
-}
 
-.work-order-info {
-  padding: 45px 74px;
-  display: flex;
-  gap: 35px;
-
+  /* Handle on hover */
+  *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .main-block{
+    display: flex;
+    gap: 35px;
+  }
   .images {
     width: 387px;
 
@@ -67,7 +71,7 @@
 
           p {
             margin: 0;
-            color: #fff;
+            color: #FFF;
             font-family: Inter;
             font-size: 17px;
             font-style: normal;
@@ -75,6 +79,7 @@
             line-height: 19px;
             letter-spacing: 0.34px;
           }
+
         }
       }
     }
@@ -95,7 +100,7 @@
     }
 
     .small-info {
-      color: rgba(51, 51, 51, 0.5);
+      color: rgba(51, 51, 51, 0.50);
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -112,7 +117,7 @@
 
     .documents {
       display: flex;
-      color: #0077b6;
+      color: #0077B6;
       text-align: right;
       font-family: Inter;
       font-size: 16px;
@@ -136,7 +141,7 @@
 
     .sale-type {
       border-radius: 6px;
-      background: #f6f5fa;
+      background: #F6F5FA;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -146,7 +151,7 @@
 
       p {
         margin: 0;
-        color: rgba(51, 51, 51, 0.5);
+        color: rgba(51, 51, 51, 0.50);
         font-family: Inter;
         font-size: 14px;
         font-style: normal;
@@ -183,7 +188,7 @@
         }
 
         p:first-child {
-          color: rgba(6, 54, 79, 0.6);
+          color: rgba(6, 54, 79, 0.60);
           font-family: Inter;
           font-size: 14px;
           font-style: normal;
@@ -192,7 +197,7 @@
         }
 
         .link-to-cus {
-          color: #1788fa;
+          color: #1788FA;
           text-align: right;
           font-family: Inter;
           font-size: 14px;
@@ -211,6 +216,8 @@
           font-weight: 600;
           line-height: 24px;
         }
+
+
       }
     }
 
@@ -233,117 +240,83 @@
         border-radius: 6px;
 
         &.reject {
-          background: #eee;
-          color: rgba(51, 51, 51, 0.5);
+          background: #EEE;
+          color: rgba(51, 51, 51, 0.50);
         }
 
         &.accept {
-          background: #0077b6;
-          color: #fff;
+          background: #0077B6;
+          color: #FFF;
         }
       }
     }
   }
 }
-.car-more-info {
-  margin-top: 48px;
-  .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
-    p {
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 24px;
-      &.name {
-        color: rgba(6, 54, 79, 0.6);
-      }
-      &.value {
-        color: #000;
-      }
-    }
-  }
-}
-.actions {
-  margin-top: 40px;
-  button {
-    width: 163px;
-    height: 60px;
-    border-radius: 6px;
-    background: #0077b6;
-  }
-  .buy {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .bid {
-    display: flex;
-    gap: 11px;
-    justify-content: flex-end;
-    input {
-      width: calc(100% - 174px);
-      height: 60px;
-      border-radius: 6px;
-      border: 1px solid #d9d9d9;
-      background: #fff;
-      color: rgba(51, 51, 51, 0.3);
-      text-align: center;
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 19px;
-    }
-  }
-}
-
-.offers-history {
-  min-height: 177px;
-  width: calc(100% - 148px);
+.current-offer {
+  min-height: 265px;
   border-radius: 6px;
   background: #f6f5fa;
-  margin: 0 auto;
-  .heading {
+  margin-top: 25px;
+  .header {
     padding: 24px 40px;
     border-bottom: 1px solid rgba(51, 51, 51, 0.15);
-    h3 {
-      color: rgba(51, 51, 51, 0.7);
-      font-family: Inter;
+    p{
+      color: rgba(51, 51, 51, 0.70);
       font-size: 14px;
-      font-style: normal;
       font-weight: 600;
       line-height: 19px;
     }
   }
-  .list {
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  .body {
+    padding: 24px 40px;
     .item {
-      &.disabled{
-        display:none
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      p{
+        color: #333;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 19px;
       }
-      .block {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-    p {
-      color: #333;
-      font-family: Inter;
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 19px;
-      &.date{
+      .date{
         color: rgba(51, 51, 51, 0.70);
         font-size: 14px;
         font-weight: 600;
         line-height: 19px;
       }
     }
+    .actions{
+      margin-top: 43px;
+      display: flex;
+      gap: 30px;
+      button{
+        width: 211px;
+        height: 53px;
+        border-radius: 6px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        &.accept{
+          background: #0077B6;
+        }
+        &.reject{
+          background: #EEE;
+          color: rgba(51, 51, 51, 0.50);
+        }
+      }
+    }
+
+  }
+  &.history{
+    margin-top: 25px;
+    min-height: 180px;
+    .body{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
   }
 }
-

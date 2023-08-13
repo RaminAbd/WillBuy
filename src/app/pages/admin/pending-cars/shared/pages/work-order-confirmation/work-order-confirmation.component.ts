@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { WorkOrderDetailService } from './work-order-detail.service';
 import { CarDetailDTO } from '../../models/CarDetailDTO.model';
+import { WorkOrderConfirmationService } from './work-order-confirmation.service';
+import { getDataDetail } from '@microsoft/signalr/dist/esm/Utils';
+import { SaleOfferModel } from '../../models/sale-offer.model';
 
 @Component({
-  selector: 'app-work-order-detail',
-  templateUrl: './work-order-detail.component.html',
-  styleUrls: ['./work-order-detail.component.scss'],
+  selector: 'app-work-order-confirmation',
+  templateUrl: './work-order-confirmation.component.html',
+  styleUrls: ['./work-order-confirmation.component.scss'],
 })
-export class WorkOrderDetailComponent {
+export class WorkOrderConfirmationComponent {
+  constructor(private service: WorkOrderConfirmationService) {
+    this.service.component = this;
+    this.service.getDetail();
+  }
+  currentOffer: SaleOfferModel = new SaleOfferModel();
   carDetail: CarDetailDTO = new CarDetailDTO();
   displayBasic: boolean = false;
-  constructor(
-    public route: ActivatedRoute,
-    private service: WorkOrderDetailService,
-  ) {
-    this.service.getDetail(this);
-  }
   responsiveOptions: any[] = [
     {
       breakpoint: '1500px',
@@ -50,12 +50,10 @@ export class WorkOrderDetailComponent {
         return 'Customer';
     }
   }
-  goToCustomer(customer: any) {}
-  Reject() {
-    this.service.reject();
-  }
-  Accept() {
-    this.carDetail.completionOption = 1;
+
+  complete() {
     this.service.complete();
   }
+
+  reject() {}
 }

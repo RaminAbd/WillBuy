@@ -26,4 +26,7 @@ export class SalesApiService extends BaseCrudApiService {
   GetByExternalId(req: any) {
     return this.get(this.serviceUrl + 'GetByExternalId', null, req);
   }
+  Complete(req: any) {
+    return this.post(this.serviceUrl + 'Complete', req);
+  }
 }

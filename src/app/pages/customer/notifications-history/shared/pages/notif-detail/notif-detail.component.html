@@ -1,12 +1,16 @@
 <div class="notification-detail">
-  <div class="saleDetail">
+  <div class="sales-detail item">
     <img [src]="saleDetail.car.preview" alt="" />
     <div class="info">
       <div class="name-info">
         <div class="name">
           <h3>
             {{
-            saleDetail.car.year + " " + saleDetail.car.make + " " + saleDetail.car.model
+              saleDetail.car.year +
+                " " +
+                saleDetail.car.make +
+                " " +
+                saleDetail.car.model
             }}
           </h3>
         </div>
@@ -18,29 +22,52 @@
         </div>
       </div>
       <div class="auctionType">
-        <p>Auction type: <span>{{ saleDetail.car.auctionName }}</span></p>
+        <p>
+          Auction type: <span>{{ saleDetail.car.auctionName }}</span>
+        </p>
       </div>
       <div class="prices">
-        <div class="saleDetails">
-          <div class="price-saleDetail">
-            <h4 class="head">
-              $
-              {{
+        <div class="price-saleDetail">
+          <h4 class="head">
+            $
+            {{
               saleDetail.saleOption === 1
                 ? saleDetail.directSaleOption.price
-                : saleDetail.tradingSaleOption.minimalPrice
-              }}
-            </h4>
-            <p>{{ saleDetail.saleOption === 1 ? "Price" : "Minimal price" }}</p>
-          </div>
-          <div class="price-saleDetail" *ngIf="saleDetail.saleOption !== 1">
-            <h4 class="head">
-              $ {{ saleDetail.tradingSaleOption.desiredPrice }}
-            </h4>
-            <p>Desired price</p>
-          </div>
+                : saleDetail.tradingSaleOption.desiredPrice
+            }}
+          </h4>
+          <p class="price-naming">{{ saleDetail.saleOption === 1 ? "Price" : "Desired price" }}</p>
         </div>
       </div>
     </div>
   </div>
+  <p class="offer-label">The vehicle will be sold as soon as you assign it</p>
+  <div class="current-offer">
+    <div class="header">
+      <p>Current offer</p>
+    </div>
+    <div class="body">
+      <div class="item">
+        <p>${{currentOffer.value}}</p>
+        <p class="date">{{currentOffer.createdAt |  date:'EEEE d MMMM y h:mm a'}}</p>
+      </div>
+      <div class="actions">
+        <button class="accept" (click)="acceptSale()">Assign</button>
+        <button class="reject" (click)="rejectSale()">Abandon</button>
+      </div>
+    </div>
+  </div>
+  <div class="current-offer history">
+    <div class="header">
+      <p>Offers history</p>
+    </div>
+    <div class="body">
+      <div class="item" *ngFor="let offer of saleDetail.offers">
+        <p>${{offer.value}}</p>
+        <p class="date">{{offer.createdAt |  date:'EEEE d MMMM y h:mm a'}}</p>
+      </div>
+
+    </div>
+  </div>
+
 </div>

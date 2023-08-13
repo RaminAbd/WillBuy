@@ -1,9 +1,12 @@
+.notification-detail {
+  padding: 0 69px;
+}
 .item {
   display: flex;
   gap: 26px;
   img {
     width: 200px;
-    height: 160px;
+    height: 140px;
     border-radius: 6px;
   }
   .info {
@@ -14,17 +17,13 @@
     width: calc(100% - 226px);
     .name {
       color: #333;
-      font-family: Inter;
       font-size: 16px;
-      font-style: normal;
       font-weight: 700;
       line-height: 19px;
     }
     .small-info {
       color: rgba(51, 51, 51, 0.5);
-      font-family: Inter;
       font-size: 14px;
-      font-style: normal;
       font-weight: 400;
       line-height: 19px;
       display: flex;
@@ -33,16 +32,14 @@
     }
   }
 }
-.auctionType{
-  span{
-    font-width: 700;
-    color:#333 ;
+.auctionType {
+  span {
+    font-weight: 700;
+    color: #333;
   }
-  p{
-    color: rgba(51, 51, 51, 0.50);
-    font-family: Inter;
+  p {
+    color: rgba(51, 51, 51, 0.5);
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: 19px;
   }
@@ -56,17 +53,13 @@
     gap: 50px;
     h4 {
       color: #333;
-      font-family: Inter;
       font-size: 14px;
-      font-style: normal;
       font-weight: 700;
       line-height: 19px;
     }
     p {
       color: rgba(51, 51, 51, 0.5);
-      font-family: Inter;
       font-size: 13px;
-      font-style: normal;
       font-weight: 400;
       line-height: 19px;
     }
@@ -76,11 +69,9 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    p{
-      color: rgba(51, 51, 51, 0.50);
-      font-family: Inter;
+    p {
+      color: rgba(51, 51, 51, 0.5);
       font-size: 13px;
-      font-style: normal;
       font-weight: 600;
       line-height: 19px;
     }
@@ -88,14 +79,94 @@
       width: 103px;
       height: 36px;
       border-radius: 6px;
-      background: #0077B6;
-      color: #FFF;
+      background: #0077b6;
+      color: #fff;
       text-align: center;
-      font-family: Inter;
       font-size: 14px;
-      font-style: normal;
       font-weight: 600;
       line-height: 24px;
+    }
+  }
+
+  .price-naming {
+    color: rgba(51, 51, 51, 0.5);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+  }
+}
+.offer-label {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  margin: 55px 0 39px 0;
+}
+
+.current-offer {
+  min-height: 265px;
+  border-radius: 6px;
+  background: #f6f5fa;
+  .header {
+    padding: 24px 40px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+    p{
+      color: rgba(51, 51, 51, 0.70);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 19px;
+    }
+  }
+  .body {
+    padding: 24px 40px;
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      p{
+        color: #333;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 19px;
+      }
+      .date{
+        color: rgba(51, 51, 51, 0.70);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 19px;
+      }
+    }
+    .actions{
+      margin-top: 43px;
+      display: flex;
+      gap: 30px;
+      button{
+        width: 211px;
+        height: 53px;
+        border-radius: 6px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px;
+        &.accept{
+          background: #0077B6;
+        }
+        &.reject{
+          background: #EEE;
+          color: rgba(51, 51, 51, 0.50);
+        }
+      }
+    }
+
+  }
+  &.history{
+    margin-top: 25px;
+    min-height: 180px;
+    .body{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
   }
 }

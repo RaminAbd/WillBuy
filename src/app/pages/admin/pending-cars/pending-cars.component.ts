@@ -18,8 +18,14 @@ export class PendingCarsComponent implements OnDestroy {
     this.service.buildHubConnection(this);
   }
   onRowSelect(e: any) {
-    this.router.navigate(['admin/cars/', 'vehicle-details']);
-    localStorage.setItem('carId', e.data.processId);
+    console.log(e);
+    if (e.data.processType.code === 2) {
+      this.router.navigate(['admin/cars/', 'confirmation']);
+      localStorage.setItem('carId', e.data.processId);
+    } else {
+      this.router.navigate(['admin/cars/', 'vehicle-details']);
+      localStorage.setItem('carId', e.data.processId);
+    }
   }
 
   ngOnDestroy(): void {

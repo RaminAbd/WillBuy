@@ -61,6 +61,8 @@ import { SoldCarsComponent } from './pages/customer/sold-cars/sold-cars.componen
 import { PurchasedCarsComponent } from './pages/customer/purchased-cars/purchased-cars.component';
 import { OperatorUpsertComponent } from './pages/admin/operators/shared/components/operator-upsert/operator-upsert.component';
 import { NotifDetailComponent } from './pages/customer/notifications-history/shared/pages/notif-detail/notif-detail.component';
+import { PaymentMethodComponent } from './pages/customer/payment-method/payment-method.component';
+import { WorkOrderConfirmationComponent } from './pages/admin/pending-cars/shared/pages/work-order-confirmation/work-order-confirmation.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -107,7 +109,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     SoldCarsComponent,
     PurchasedCarsComponent,
     OperatorUpsertComponent,
-    NotifDetailComponent
+    NotifDetailComponent,
+    PaymentMethodComponent,
+    WorkOrderConfirmationComponent
   ],
   imports: [
     BrowserModule,

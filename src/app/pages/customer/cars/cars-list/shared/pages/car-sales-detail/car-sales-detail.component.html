@@ -113,11 +113,11 @@
           <p class="value">{{ carDetail.car.secondaryDamage }}</p>
         </div>
       </div>
-      <div class="actions">
+      <div class="actions" *ngIf="!alreadyHasOffered && !isMySale">
         <div class="bid" *ngIf="carDetail.saleOption === 2">
           <input
             type="number"
-            [disabled]="alreadyHasOffered"
+            [disabled]="alreadyHasOffered || isMySale"
             [(ngModel)]="BidValue"
             (ngModelChange)="changeButtonState()"
             min="{{ carDetail.tradingSaleOption.minimalPrice }}"
@@ -141,7 +141,7 @@
       </div>
     </div>
   </div>
-  <div class="offers-history">
+  <div class="offers-history" *ngIf="carDetail.offers.length > 0">
     <div class="heading">
       <h4>Offers history</h4>
     </div>
@@ -149,14 +149,16 @@
       <div class="item" *ngFor="let offer of carDetail.offers">
         <div class="block">
           <p>${{ offer.value }}</p>
+          <p class="date">{{offer.createdAt |  date:'EEEE d MMMM y h:mm a'}}</p>
         </div>
       </div>
     </div>
 
     <div class="list" *ngIf="carDetail.sellerId !== selectedPermission.id">
-      <div class="item" *ngFor="let offer of carDetail.offers">
+      <div class="item {{offer.customerId !== selectedPermission.id ? 'disabled' : ''}}" *ngFor="let offer of carDetail.offers">
         <div class="block" *ngIf="offer.customerId === selectedPermission.id">
           <p>${{ offer.value }}</p>
+          <p class="date">{{offer.createdAt |  date:'EEEE d MMMM y h:mm a'}}</p>
         </div>
       </div>
     </div>
