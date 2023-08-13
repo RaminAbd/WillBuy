@@ -5,17 +5,22 @@ import { WorkOrderDetailComponent } from '../work-order-detail/work-order-detail
 import { WorkOrderConfirmationComponent } from './work-order-confirmation.component';
 import { SalesApiService } from '../../../../../customer/cars/cars-list/shared/services/sales.api.service';
 import { Router } from '@angular/router';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { RejectDialogComponent } from '../../components/reject-dialog/reject-dialog.component';
+import { CarConfirmRejectDialogComponent } from '../../components/car-confirm-reject-dialog/car-confirm-reject-dialog.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WorkOrderConfirmationService {
   component: WorkOrderConfirmationComponent;
+  ref: DynamicDialogRef | undefined;
   constructor(
     private translate: TranslateService,
     private blob: FilesApiService,
     private service: SalesApiService,
     private router: Router,
+    private dialog: DialogService,
   ) {}
   Download(myfile: any) {
     this.blob.Download(myfile.id).subscribe((blob: Blob) => {
@@ -54,5 +59,38 @@ export class WorkOrderConfirmationService {
       }
     });
   }
-  reject() {}
+  reject() {
+    console.log(this.component.carDetail.activeOffer);
+    var offersForReject = this.component.carDetail.offers.filter(
+      (x: any) => x.id !== this.component.carDetail.activeOffer.id,
+    );
+    offersForReject.forEach((item) => {
+      item.fullInfo =
+        item.customer.firstName +
+        ' ' +
+        item.customer.lastName +
+        ', ' +
+        item.customer.personalId +
+        ', $' +
+        item.value;
+    });
+    this.component.carDetail.offersForReject = offersForReject;
+    this.ref = this.dialog.open(CarConfirmRejectDialogComponent, {
+      header: 'Reject Reason',
+      width: '900px',
+      height: '500px',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: false,
+      data: this.component.carDetail,
+    });
+
+    this.ref.onClose.subscribe((req: any) => {
+      if (req) {
+        this.component.carDetail.completionOption = 2;
+        this.component.carDetail.rejectReason = req;
+        this.complete();
+      }
+    });
+  }
 }

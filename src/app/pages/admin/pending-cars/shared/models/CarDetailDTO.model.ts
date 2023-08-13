@@ -24,4 +24,5 @@ export class CarDetailDTO {
   sellerId: any;
   seller: CustomerResponse = new CustomerResponse();
   activeOffer: SaleOfferModel = new SaleOfferModel();
+  offersForReject:SaleOfferModel[]=[];
 }

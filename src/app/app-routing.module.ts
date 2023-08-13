@@ -30,8 +30,10 @@ import { PurchasedCarsComponent } from './pages/customer/purchased-cars/purchase
 import { NotifDetailComponent } from './pages/customer/notifications-history/shared/pages/notif-detail/notif-detail.component';
 import { PaymentMethodComponent } from './pages/customer/payment-method/payment-method.component';
 import { WorkOrderConfirmationComponent } from './pages/admin/pending-cars/shared/pages/work-order-confirmation/work-order-confirmation.component';
+import {LandingComponent} from "./pages/landing/landing.component";
 
 const routes: Routes = [
+  { path: '', component: LandingComponent },
   { path: 'sign-in', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'recover', component: RecoverComponent },
@@ -179,7 +181,7 @@ const routes: Routes = [
     ],
   },
 
-  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+  // { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,0 +1,162 @@
+.landing-wrapper {
+  .header {
+    height: 87px;
+    padding: 22px 109px 22px 69px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      img {
+        width: 259px;
+      }
+    }
+    .help-sign {
+      display: flex;
+      .help {
+        color: #464953;
+        text-align: right;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+        height: 28px;
+        padding: 0 12px;
+        border-right: 1px solid #c9c9c9;
+        cursor: pointer;
+      }
+      .sign-in {
+        color: #0077b6;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        padding: 0 12px;
+        cursor: pointer;
+      }
+    }
+  }
+  .main-image {
+    height: 611px;
+    position: relative;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .info{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      padding-left: 165px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .naming{
+        color: #FFF;
+        font-family: Inria Serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 56.5px;
+      }
+      .text{
+        color: #FFF;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 56.5px;
+      }
+    }
+  }
+  .tranding-auctions{
+    padding: 79px 69px;
+    .heading{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 33px;
+      h3{
+        color: #464953;
+        font-family: Inter;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      p{
+        color: #0077B6;
+        text-align: right;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        cursor:pointer;
+      }
+    }
+    .list{
+      display: flex;
+      gap: 27px;
+      .item{
+        width: calc((100% - 72px) / 4);
+        min-height: 407px;
+        padding: 22px 17.5px 33px 17.5px;
+        border-radius: 12px;
+        background: #FFF;
+        box-shadow: 0px 8px 25px -11px rgba(0, 0, 0, 0.25);
+        img{
+          max-width: 100%;
+          width: 100%;
+          border-radius: 8px;
+          height: 203px;
+          object-fit: cover;
+        }
+        .info{
+          .car-name{
+            color: #464953;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            margin: 16px 0 8px 0;
+          }
+          .transmission{
+            color: rgba(6, 54, 79, 0.60);
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+          }
+          .position{
+            color: rgba(6, 54, 79, 0.60);
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+          }
+
+        }
+        button{
+          height: 48px;
+          border-radius: 6px;
+          border: 1px solid #0077B6;
+          background: #FFF;
+          color: #333;
+          text-align: center;
+          font-family: Inter;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 24px;
+          width: 100%;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}

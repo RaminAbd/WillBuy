@@ -55,5 +55,7 @@ export class WorkOrderConfirmationComponent {
     this.service.complete();
   }
 
-  reject() {}
+  reject() {
+    this.service.reject();
+  }
 }

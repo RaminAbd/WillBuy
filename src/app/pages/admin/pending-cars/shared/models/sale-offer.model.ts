@@ -8,4 +8,5 @@ export class SaleOfferModel {
   isMaster: boolean;
   id: string;
   createdAt: any;
+  fullInfo:any;
 }
