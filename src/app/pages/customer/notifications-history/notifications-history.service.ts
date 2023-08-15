@@ -5,7 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificationsHistoryComponent } from './notifications-history.component';
 import { SalesHubService } from '../cars/cars-list/shared/services/sales-hub.service';
 import { NotificationsResponse } from './shared/models/notifications-response.model';
-import { SalesApiService } from "../cars/cars-list/shared/services/sales.api.service";
+import { SalesApiService } from '../cars/cars-list/shared/services/sales.api.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,8 @@ export class NotificationsHistoryService {
     private storage: LocalStorageService,
     private translate: TranslateService,
     private hubService: SalesHubService,
-
+    private salesService: SalesApiService,
+    private router: Router,
   ) {
     this.openConnections();
   }
@@ -28,9 +30,8 @@ export class NotificationsHistoryService {
       lang: this.translate.currentLang,
     };
     this.service.GetAllForMe(req).subscribe((resp) => {
-      console.log(resp.data)
+      console.log(resp.data);
       if (resp.succeeded) {
-
         this.component.Notifications = resp.data;
       }
     });
@@ -44,5 +45,16 @@ export class NotificationsHistoryService {
     });
   }
 
-
+  getCarDetail(id: string) {
+    var req = {
+      Id: id,
+      Lang: this.translate.currentLang,
+    };
+    this.salesService.GetByExternalId(req).subscribe((resp) => {
+      console.log(resp);
+      if (resp.succeeded) {
+        this.getAllNotifications();
+      }
+    });
+  }
 }

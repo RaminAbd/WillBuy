@@ -51,7 +51,7 @@
         <p>${{currentOffer.value}}</p>
         <p class="date">{{currentOffer.createdAt |  date:'EEEE d MMMM y h:mm a'}}</p>
       </div>
-      <div class="actions">
+      <div class="actions" *ngIf="showActions">
         <button class="accept" (click)="acceptSale()">Assign</button>
         <button class="reject" (click)="rejectSale()">Abandon</button>
       </div>

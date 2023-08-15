@@ -31,8 +31,12 @@ export class NotifDetailService {
         this.component.currentOffer = this.component.saleDetail.offers.find(
           (x: any) => x.id === this.component.detail.externalId,
         );
-
-        console.log(this.component.currentOffer);
+        if (resp.data.notification.actionApplied) {
+          this.component.showActions = false;
+        } else {
+          this.component.showActions = true;
+        }
+        // console.log(this.component.currentOffer);
       }
     });
   }

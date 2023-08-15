@@ -59,6 +59,13 @@ export class WorkOrderConfirmationService {
       }
     });
   }
+  Decline(req: any) {
+    this.service.Decline(req).subscribe((resp) => {
+      if (resp.succeeded) {
+        this.router.navigate(['admin/cars']);
+      }
+    });
+  }
   reject() {
     console.log(this.component.carDetail.activeOffer);
     var offersForReject = this.component.carDetail.offers.filter(
@@ -77,8 +84,8 @@ export class WorkOrderConfirmationService {
     this.component.carDetail.offersForReject = offersForReject;
     this.ref = this.dialog.open(CarConfirmRejectDialogComponent, {
       header: 'Reject Reason',
-      width: '900px',
-      height: '500px',
+      width: '665px',
+      height: '300px',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: false,
@@ -87,9 +94,7 @@ export class WorkOrderConfirmationService {
 
     this.ref.onClose.subscribe((req: any) => {
       if (req) {
-        this.component.carDetail.completionOption = 2;
-        this.component.carDetail.rejectReason = req;
-        this.complete();
+        this.Decline(req);
       }
     });
   }

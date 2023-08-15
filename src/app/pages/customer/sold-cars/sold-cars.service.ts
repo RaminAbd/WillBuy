@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { SaleHistoriesApiService } from '../../../services/sale-histories.api.service';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { SoldCarsComponent } from './sold-cars.component';
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService } from '@ngx-translate/core';
+import { CarApplicationsService } from '../../../services/car-applications.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,22 +13,33 @@ export class SoldCarsService {
   constructor(
     private service: SaleHistoriesApiService,
     private storage: LocalStorageService,
-    private translate:TranslateService
+    private translate: TranslateService,
+    private applicationService: CarApplicationsService,
   ) {}
 
   GetAllBySellerId() {
     var res = this.storage.getObject('selectedPermission');
-    console.log(res)
     var req = {
       id: res.id,
-      lang:this.translate.currentLang
+      lang: this.translate.currentLang,
     };
-    console.log(req)
     this.service.GetAllBySellerId(req).subscribe((resp) => {
-      console.log(resp, 'dvsdvsdv')
-      if(resp.succeeded){
+      if (resp.succeeded) {
         this.component.SoldCars = resp.data;
       }
+    });
+  }
+
+  getPendingCars() {
+    var res = this.storage.getObject('selectedPermission');
+    var req = {
+      id: res.userId,
+      lang: this.translate.currentLang,
+    };
+    console.log(req, '');
+    this.applicationService.GetAllByUserId(req).subscribe((resp) => {
+      console.log(resp);
+      this.component.PendingCars = resp.data;
     });
   }
 }

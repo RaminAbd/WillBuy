@@ -5,52 +5,47 @@
     ></app-cars-list-header>
   </div>
   <div class="body">
-    <div class="list">
-      <div class="item" *ngFor="let item of PurchasedCars">
-        <img [src]="item.car.preview" alt="" />
-        <div class="info">
-          <div class="name-info">
-            <div class="name">
-              <h3>
-                {{ item.car.year + " " + item.car.make + " " + item.car.model }}
-              </h3>
-            </div>
-            <div class="small-info">
-              <p>{{ item.car.odometer }}</p>
-              <p>{{ item.car.color }}</p>
-              <p>{{ item.car.engineType }}</p>
-              <p>{{ item.car.fuel }}</p>
-            </div>
-          </div>
-          <div class="auctionType">
-            <p>
-              Auction type: <span>{{ item.car.auctionName }}</span>
-            </p>
-          </div>
-          <div class="prices">
-            <div class="items">
-              <div class="price-item">
-                <h4 class="head">
-                  $
+    <div class="pending-cars">
+      <div class="list">
+        <div class="item" *ngFor="let item of PurchasedCars">
+          <img [src]="item.car.preview" alt="" />
+          <div class="info">
+            <div class="name-info">
+              <div class="name">
+                <h3>
                   {{
-                  item.saleOption === 1
-                    ? item.directSaleOption.price
-                    : item.tradingSaleOption.minimalPrice
+                    item.car.year + " " + item.car.make + " " + item.car.model
                   }}
-                </h4>
-                <p>{{ item.saleOption === 1 ? "Price" : "Minimal price" }}</p>
+                </h3>
               </div>
-              <div class="price-item" *ngIf="item.saleOption !== 1">
-                <h4 class="head">
-                  $ {{ item.tradingSaleOption.desiredPrice }}
-                </h4>
-                <p>Desired price</p>
+              <div class="small-info">
+                <p>{{ item.car.odometer }}</p>
+                <p>{{ item.car.color }}</p>
+                <p>{{ item.car.engineType }}</p>
+                <p>{{ item.car.fuel }}</p>
+              </div>
+              <div class="auctionType">
+                <p>
+                  Auction type: <span>{{ item.car.auctionName }}</span>
+                </p>
               </div>
             </div>
 
-            <div class="btn">
-              <div class="lot-number">
-                <p>#{{ item.car.lotNumber }}</p>
+            <div class="btn-price">
+              <div class="btn">
+                <button>Acquired</button>
+              </div>
+              <div class="prices">
+                <div class="items">
+                  <div class="price-item">
+                    <h4 class="head">
+                      $ {{ item.soldAt }}
+                    </h4>
+                    <p>
+                      Sold at
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

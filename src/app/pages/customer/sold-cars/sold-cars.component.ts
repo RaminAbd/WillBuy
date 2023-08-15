@@ -8,8 +8,10 @@ import { SoldCarsService } from './sold-cars.service';
 })
 export class SoldCarsComponent {
   SoldCars: any[] = [];
+  PendingCars: any[] = [];
   constructor(private service: SoldCarsService) {
     this.service.component = this;
     this.service.GetAllBySellerId();
+    this.service.getPendingCars();
   }
 }

@@ -24,6 +24,7 @@ export class NotificationsHistoryComponent {
       this.close.emit(true);
       this.router.navigate(['customer/cars/notification', notif.externalId]);
     } else {
+      this.service.getCarDetail(notif.externalId);
     }
   }
 }

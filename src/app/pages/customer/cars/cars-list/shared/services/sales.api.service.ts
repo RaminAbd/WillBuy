@@ -29,4 +29,7 @@ export class SalesApiService extends BaseCrudApiService {
   Complete(req: any) {
     return this.post(this.serviceUrl + 'Complete', req);
   }
+  Decline(req: any) {
+    return this.post(this.serviceUrl + 'Decline', req);
+  }
 }

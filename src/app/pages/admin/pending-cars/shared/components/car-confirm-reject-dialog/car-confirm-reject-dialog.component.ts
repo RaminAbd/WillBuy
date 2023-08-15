@@ -18,29 +18,43 @@ export class CarConfirmRejectDialogComponent {
     { name: 'Seller', key: 1 },
     { name: 'Buyer', key: 2 },
   ];
-  selectedProblemSource: any = this.ProblemSources[0];
+  selectedProblemSource: any;
+  showContinue: boolean = false;
+
   constructor(
     public ref: DynamicDialogRef,
     public dialogService: DialogService,
     public config: DynamicDialogConfig,
-  ) {
-    this.Offers = config.data.offersForReject;
-  }
+  ) {}
   cancel() {
     this.ref.close();
   }
   submit() {
-    var req = {
-      saleId: this.config.data.id,
-      problemSource: this.selectedProblemSource.key,
-      continueWith: this.selectedNextOffer.id ? this.selectedNextOffer.id : '',
-    };
-    this.ref.close(req);
+    console.log(this.selectedProblemSource);
+    // var req: any = {
+    //   saleId: this.config.data.id,
+    //   problemSource: this.selectedProblemSource.key,
+    // };
+    // if (this.selectedNextOffer.id) {
+    //   req.continueWith = this.selectedNextOffer.id;
+    // }
+    // this.ref.close(req);
   }
 
   changeType() {
-    if (this.selectedProblemSource.key === 1) {
-      this.selectedNextOffer = new SaleOfferModel();
-    }
+    console.log(this.selectedProblemSource);
+    // console.log(this.config.data.saleOption);
+
+    // if (this.selectedProblemSource.key === 1) {
+    //   this.selectedNextOffer = new SaleOfferModel();
+    // }
+    // if (
+    //   this.selectedProblemSource.key === 2 &&
+    //   this.config.data.saleOption === 1
+    // ) {
+    //   this.showContinue = true;
+    // } else {
+    //   this.showContinue = false;
+    // }
   }
 }
