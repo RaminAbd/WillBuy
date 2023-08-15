@@ -18,7 +18,7 @@ export class CarConfirmRejectDialogComponent {
     { name: 'Seller', key: 1 },
     { name: 'Buyer', key: 2 },
   ];
-  selectedProblemSource: any;
+  selectedProblemSource: any = this.ProblemSources[0];
   constructor(
     public ref: DynamicDialogRef,
     public dialogService: DialogService,

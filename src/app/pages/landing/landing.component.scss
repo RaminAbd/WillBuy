@@ -45,7 +45,7 @@
       width: 100%;
       object-fit: cover;
     }
-    .info{
+    .info {
       position: absolute;
       height: 100%;
       width: 100%;
@@ -53,16 +53,16 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .naming{
-        color: #FFF;
+      .naming {
+        color: #fff;
         font-family: Inria Serif;
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
         line-height: 56.5px;
       }
-      .text{
-        color: #FFF;
+      .text {
+        color: #fff;
         font-family: Inter;
         font-size: 20px;
         font-style: normal;
@@ -71,14 +71,14 @@
       }
     }
   }
-  .tranding-auctions{
+  .tranding-auctions {
     padding: 79px 69px;
-    .heading{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 33px;
-      h3{
+      h3 {
         color: #464953;
         font-family: Inter;
         font-size: 26px;
@@ -86,36 +86,36 @@
         font-weight: 700;
         line-height: 24px;
       }
-      p{
-        color: #0077B6;
+      p {
+        color: #0077b6;
         text-align: right;
         font-family: Inter;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
         line-height: 24px;
-        cursor:pointer;
+        cursor: pointer;
       }
     }
-    .list{
+    .list {
       display: flex;
       gap: 27px;
-      .item{
+      .item {
         width: calc((100% - 72px) / 4);
         min-height: 407px;
         padding: 22px 17.5px 33px 17.5px;
         border-radius: 12px;
-        background: #FFF;
+        background: #fff;
         box-shadow: 0px 8px 25px -11px rgba(0, 0, 0, 0.25);
-        img{
+        img {
           max-width: 100%;
           width: 100%;
           border-radius: 8px;
           height: 203px;
           object-fit: cover;
         }
-        .info{
-          .car-name{
+        .info {
+          .car-name {
             color: #464953;
             font-family: Inter;
             font-size: 16px;
@@ -123,29 +123,28 @@
             font-weight: 700;
             margin: 16px 0 8px 0;
           }
-          .transmission{
-            color: rgba(6, 54, 79, 0.60);
+          .transmission {
+            color: rgba(6, 54, 79, 0.6);
             font-family: Inter;
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
             line-height: 24px;
           }
-          .position{
-            color: rgba(6, 54, 79, 0.60);
+          .position {
+            color: rgba(6, 54, 79, 0.6);
             font-family: Inter;
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
             line-height: 24px;
           }
-
         }
-        button{
+        button {
           height: 48px;
           border-radius: 6px;
-          border: 1px solid #0077B6;
-          background: #FFF;
+          border: 1px solid #0077b6;
+          background: #fff;
           color: #333;
           text-align: center;
           font-family: Inter;
@@ -159,4 +158,12 @@
       }
     }
   }
+}
+
+.image {
+  width: 300px; /* Adjust to your desired width */
+  height: 300px; /* Adjust to your desired height */
+  background-image: url("assets/images/seller-benefits.png");
+  background-size: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 100%);
 }
