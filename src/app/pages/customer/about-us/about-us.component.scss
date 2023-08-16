@@ -1,6 +1,8 @@
 
 .body{
   padding: 55px;
+      height: calc(100vh - 60px);
+      overflow: auto;
   .page-info-back{
     background-image: url('../../../../assets/images/billing-back.png');
     background-repeat: no-repeat;
