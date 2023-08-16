@@ -42,7 +42,6 @@ export class WorkOrderConfirmationService {
     this.service
       .GetByIdByLang(this.service.serviceUrl, req)
       .subscribe((resp) => {
-        console.log(resp);
         if (resp.succeeded) {
           this.component.carDetail = resp.data;
         }
@@ -67,7 +66,6 @@ export class WorkOrderConfirmationService {
     });
   }
   reject() {
-    console.log(this.component.carDetail.activeOffer);
     var offersForReject = this.component.carDetail.offers.filter(
       (x: any) => x.id !== this.component.carDetail.activeOffer.id,
     );

@@ -31,12 +31,8 @@ export class CarSalesDetailService {
     this.salesService
       .GetByIdByLang(this.salesService.serviceUrl, req)
       .subscribe((resp) => {
-        console.log(resp);
         if (resp.succeeded) {
           this.component.carDetail = resp.data;
-
-          console.log(resp, selectedPermission);
-
           if (resp.data.sellerId === selectedPermission.id) {
             this.component.isMySale = true;
           } else {
@@ -44,7 +40,6 @@ export class CarSalesDetailService {
               var finded = resp.data.offers.find(
                 (x: any) => x.customerId === selectedPermission.id,
               );
-              console.log(finded);
               if (finded) {
                 this.component.alreadyHasOffered = true;
               }

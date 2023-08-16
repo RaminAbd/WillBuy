@@ -82,7 +82,6 @@ export class WorkOrderDetailService {
 
     this.ref.onClose.subscribe((req: any) => {
       if (req) {
-        console.log(req);
         this.component.carDetail.completionOption = 2;
         this.component.carDetail.rejectReason = req;
         this.component.carDetail.rejectReasonId = req.id;

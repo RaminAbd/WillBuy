@@ -23,7 +23,6 @@ export class AdminSideBarComponent {
 
   private getUserPermissions() {
     var per = this.storage.getObject('selectedPermission');
-    console.log(per)
     if(per.accountType === 3) {
       this.isAdmin = true
       this.isOperator = false

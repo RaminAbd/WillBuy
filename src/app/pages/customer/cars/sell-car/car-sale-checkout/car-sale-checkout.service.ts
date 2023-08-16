@@ -34,7 +34,6 @@ export class CarSaleCheckoutService {
     });
   }
   AddCar() {
-    console.log(this.component.Form, 'Add car form');
     this.apiService.AddCar(this.component.Form).subscribe((resp) => {
       if (resp.succeeded) {
         this.goToFinish();

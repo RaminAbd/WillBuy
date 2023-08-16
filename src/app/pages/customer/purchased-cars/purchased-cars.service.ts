@@ -18,13 +18,11 @@ export class PurchasedCarsService {
 
   GetAllByBuyerId() {
     var res = this.storage.getObject('selectedPermission');
-    console.log(res)
     var req = {
       id: res.id,
       lang:this.translate.currentLang
     };
     this.service.GetAllByBuyerId(req).subscribe((resp) => {
-      console.log(resp, 'dvsdvsdv')
       if (resp.succeeded) {
         this.component.PurchasedCars = resp.data;
       }

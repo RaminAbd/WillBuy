@@ -16,7 +16,6 @@ export class CarsListService {
 
   openHubEmitters() {
     this.hubService.emitters.SalesUpdated.subscribe((resp: any) => {
-      console.log(resp)
         this.component.SalesLocalCopy = resp;
         this.component.Sales = resp;
         this.component.updateNumberDisplay();

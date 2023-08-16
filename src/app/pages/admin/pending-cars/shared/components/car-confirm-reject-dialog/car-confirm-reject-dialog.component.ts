@@ -18,7 +18,7 @@ export class CarConfirmRejectDialogComponent {
     { name: 'Seller', key: 1 },
     { name: 'Buyer', key: 2 },
   ];
-  selectedProblemSource: any;
+  selectedProblemSource: any = this.ProblemSources[0];
   showContinue: boolean = false;
 
   constructor(
@@ -30,31 +30,22 @@ export class CarConfirmRejectDialogComponent {
     this.ref.close();
   }
   submit() {
-    console.log(this.selectedProblemSource);
-    // var req: any = {
-    //   saleId: this.config.data.id,
-    //   problemSource: this.selectedProblemSource.key,
-    // };
-    // if (this.selectedNextOffer.id) {
-    //   req.continueWith = this.selectedNextOffer.id;
-    // }
-    // this.ref.close(req);
+    var req: any = {
+      saleId: this.config.data.id,
+      problemSource: this.selectedProblemSource.key,
+    };
+    if (this.selectedNextOffer.id) {
+      req.continueWith = this.selectedNextOffer.id;
+    }
+    this.ref.close(req);
   }
 
-  changeType() {
-    console.log(this.selectedProblemSource);
-    // console.log(this.config.data.saleOption);
-
-    // if (this.selectedProblemSource.key === 1) {
-    //   this.selectedNextOffer = new SaleOfferModel();
-    // }
-    // if (
-    //   this.selectedProblemSource.key === 2 &&
-    //   this.config.data.saleOption === 1
-    // ) {
-    //   this.showContinue = true;
-    // } else {
-    //   this.showContinue = false;
-    // }
+  changeType(e: any) {
+    this.selectedProblemSource = e;
+    if (e.key === 1) {
+      this.selectedNextOffer = new SaleOfferModel();
+    }
+    this.showContinue = e.key === 2 && this.config.data.saleOption === 1;
   }
+
 }

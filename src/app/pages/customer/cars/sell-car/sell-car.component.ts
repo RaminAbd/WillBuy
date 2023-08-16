@@ -44,9 +44,7 @@ import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 export class SellCarComponent {
   constructor(private router: Router,private route: ActivatedRoute,) {
     router.events.subscribe(event => {
-      console.log(event)
       if (event instanceof NavigationEnd) {
-
         this.getPageType(event.urlAfterRedirects)
       }
     })
@@ -56,7 +54,6 @@ export class SellCarComponent {
     var currentUrl = url ? url : this.router.url;
     const parts = currentUrl.split('/');
     var PageType = parts[parts.length - 1]
-    console.log(PageType)
   }
   getAnimationState(): string {
     return 'page';

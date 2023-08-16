@@ -1,0 +1,212 @@
+
+.body{
+  padding: 55px;
+  .page-info-back{
+    background-image: url('../../../../assets/images/billing-back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 116px;
+    border-radius: 16px;
+    background-color: #0077B6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    opacity: 0.8;
+    padding: 35px;
+    display: flex;
+    gap: 19px;
+    align-items: center;
+    .back{
+      width: 46px;
+      height: 46px;
+      border-radius: 6px;
+      background: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .info{
+      color: #fff;
+      p{
+        color: #FFF;
+        font-size: 20px;
+        line-height: 19px;
+        &.text{
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+  .cards-label{
+    margin: 42px 0 5px 0;
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 19px;
+  }
+  .my-cards{
+    .item{
+      padding:25px 0;
+      border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+      display: flex;
+      justify-content: space-between;
+      .info{
+        display: flex;
+        gap: 20px;
+        .name-expiration{
+          .name{
+            color: #333;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 19px;
+            span{
+              color: #0077B6;
+              font-size: 13px;
+              font-weight: 500;
+              line-height: 19px;
+              margin-left: 17px;
+            }
+          }
+          .exp{
+            color: rgba(51, 51, 51, 0.50);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 19px;
+            margin-top: 3px;
+          }
+
+        }
+      }
+      .action{
+        color: rgba(51, 51, 51, 0.50);
+        font-size: 13px;
+        font-weight: 500;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor:pointer ;
+      }
+    }
+  }
+  .add{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 31px 0 15px 0;
+    p{
+      color: rgba(51, 51, 51, 0.50);
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+  .label{
+    color: rgba(51, 51, 51, 0.50);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .value{
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .btns{
+    gap: 16px;
+    display: flex;
+    button{
+      width: 172px;
+      height: 48px;
+      border-radius: 6px;
+      margin-top: 25px;
+
+      &.update{
+        background: #0077B6;
+        color: #FFF;
+      }
+      &.cancel{
+        background: #EEE;
+        color: rgba(51, 51, 51, 0.50);
+      }
+    }
+  }
+}
+.contact{
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+  .heading{
+    h3{
+      color: #000;
+      font-family: Inria Serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+  .icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .item{
+      display:flex;
+      gap: 8px;
+    }
+  }
+}
+.menu-items{
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  .menu{
+    width: 301px;
+    height: 428px;
+    border-radius: 6px;
+    background: #F6F5FA;
+    padding: 20px 24px;
+    .list{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      color: #9B9B9A;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 19px;
+    }
+  }
+  .items{
+    width: calc(100% - 337px);
+    .heading{
+      h3{
+        color: #333;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        margin-bottom: 24px;
+      }
+    }
+    .text{
+      p{
+        color: rgba(51, 51, 51, 0.70);
+        font-family: Inter;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 23.5px;
+      }
+    }
+  }
+}

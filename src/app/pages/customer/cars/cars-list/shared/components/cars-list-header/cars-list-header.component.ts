@@ -35,7 +35,6 @@ export class CarsListHeaderComponent {
   }
 
   getAction() {
-    console.log('sdvsdv');
     this.showNotificationsHistory = false;
   }
 }

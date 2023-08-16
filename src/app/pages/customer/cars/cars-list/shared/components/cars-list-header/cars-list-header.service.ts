@@ -44,7 +44,6 @@ export class CarsListHeaderService {
       lang: this.translate.currentLang,
     };
     this.service.GetAllForMe(req).subscribe((resp) => {
-      console.log(resp.data);
       if (resp.succeeded) {
         var notReads = resp.data.filter((x: any) => x.isRead);
         if (notReads.length > 0) {

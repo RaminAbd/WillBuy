@@ -48,7 +48,6 @@ export class CarsListComponent implements AfterViewInit{
     this.Sales = this.SalesLocalCopy.filter((x) =>
       x.vin.toLowerCase().includes(this.SearchValue.toLowerCase()),
     );
-    console.log(this.Sales);
   }
 
   getSalesDetail(item: any) {

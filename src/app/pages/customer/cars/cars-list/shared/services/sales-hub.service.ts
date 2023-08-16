@@ -51,7 +51,6 @@ export class SalesHubService {
       this.emitters.SalesUpdated.emit(value);
     });
     this.connection.on('NotificationReceived', (value: any) => {
-      console.log(value, "notifs")
       this.emitters.NotificationReceived.emit(value);
     });
   }

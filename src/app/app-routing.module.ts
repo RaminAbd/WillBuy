@@ -31,9 +31,10 @@ import { NotifDetailComponent } from './pages/customer/notifications-history/sha
 import { PaymentMethodComponent } from './pages/customer/payment-method/payment-method.component';
 import { WorkOrderConfirmationComponent } from './pages/admin/pending-cars/shared/pages/work-order-confirmation/work-order-confirmation.component';
 import {LandingComponent} from "./pages/landing/landing.component";
+import {AboutUsComponent} from "./pages/customer/about-us/about-us.component";
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: 'home', component: LandingComponent },
   { path: 'sign-in', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'recover', component: RecoverComponent },
@@ -129,6 +130,10 @@ const routes: Routes = [
         data: { permissionTypes: [1] },
       },
       {
+        path: 'about-us',
+        component: AboutUsComponent,
+      },
+      {
         path: 'purchased-cars',
         component: PurchasedCarsComponent,
         canActivate: [RoleGuard],
@@ -181,7 +186,7 @@ const routes: Routes = [
     ],
   },
 
-  // { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

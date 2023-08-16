@@ -65,6 +65,7 @@ import { PaymentMethodComponent } from './pages/customer/payment-method/payment-
 import { WorkOrderConfirmationComponent } from './pages/admin/pending-cars/shared/pages/work-order-confirmation/work-order-confirmation.component';
 import { CarConfirmRejectDialogComponent } from './pages/admin/pending-cars/shared/components/car-confirm-reject-dialog/car-confirm-reject-dialog.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { AboutUsComponent } from './pages/customer/about-us/about-us.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -115,7 +116,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PaymentMethodComponent,
     WorkOrderConfirmationComponent,
     CarConfirmRejectDialogComponent,
-    LandingComponent
+    LandingComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

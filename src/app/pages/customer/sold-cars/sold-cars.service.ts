@@ -25,6 +25,7 @@ export class SoldCarsService {
     };
     this.service.GetAllBySellerId(req).subscribe((resp) => {
       if (resp.succeeded) {
+        console.log(resp.data)
         this.component.SoldCars = resp.data;
       }
     });
@@ -36,9 +37,7 @@ export class SoldCarsService {
       id: res.userId,
       lang: this.translate.currentLang,
     };
-    console.log(req, '');
     this.applicationService.GetAllByUserId(req).subscribe((resp) => {
-      console.log(resp);
       this.component.PendingCars = resp.data;
     });
   }

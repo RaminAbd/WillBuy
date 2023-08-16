@@ -30,14 +30,12 @@ export class NotificationsHistoryService {
       lang: this.translate.currentLang,
     };
     this.service.GetAllForMe(req).subscribe((resp) => {
-      console.log(resp.data);
       if (resp.succeeded) {
         this.component.Notifications = resp.data;
       }
     });
   }
   openConnections() {
-    console.log('gelid');
     this.hubService.emitters.NotificationReceived.subscribe((resp: any) => {
       if (resp.succeeded) {
         this.getAllNotifications();
@@ -51,7 +49,6 @@ export class NotificationsHistoryService {
       Lang: this.translate.currentLang,
     };
     this.salesService.GetByExternalId(req).subscribe((resp) => {
-      console.log(resp);
       if (resp.succeeded) {
         this.getAllNotifications();
       }

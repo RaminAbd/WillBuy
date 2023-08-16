@@ -24,7 +24,6 @@ export class NotifDetailService {
       Lang: this.translate.currentLang,
     };
     this.salesService.GetByExternalId(req).subscribe((resp) => {
-      console.log(resp);
       if (resp.succeeded) {
         this.component.saleDetail = resp.data.sale;
         this.component.detail = resp.data.notification;
@@ -36,7 +35,6 @@ export class NotifDetailService {
         } else {
           this.component.showActions = true;
         }
-        // console.log(this.component.currentOffer);
       }
     });
   }

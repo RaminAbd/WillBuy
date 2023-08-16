@@ -39,6 +39,5 @@ export class CustomerFooterComponent {
   changeSelectedLang(funcLang: any) {
     localStorage.setItem('systemLanguage', funcLang);
     this.translate.use(funcLang);
-    console.log(funcLang);
   }
 }
